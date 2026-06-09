@@ -391,3 +391,28 @@ Five axes, all green before publishing:
 6. `python case-studies/_scripts/verify_case_study.py NN-slug` until it exits 0; walk the §10 checklist.
 7. Commit only the sanitized case folder; confirm `git status` shows no originals; run the git-history
    + secret sweeps **before** the first push.
+
+---
+
+## Appendix A — Metrics menu by project type
+
+Pick the metrics that matter for the type (per §4: cost/latency + traceability + ≥2 contrasting runs
+are always mandatory; tokens only when LLM-token-metered).
+
+- **RAG / context:** documents selected → confirmed → candidate chapters/pages → read; iterations;
+  seconds; API calls; input/output/total tokens; count of **valid** cited references; refusal behavior.
+- **Document intelligence / extraction:** pages/files processed; fields targeted → found → matched →
+  HITL-flagged; completion/coverage %; invalid/missing fields; processing time; API calls; retries; tokens (if metered).
+- **Agent / tool / MCP:** tools discovered → executed; success/failure/retry; steps per task;
+  execution time; isolation/permission boundaries respected; chained/scheduled runs if relevant.
+- **Applied-AI product:** latency percentiles per main flow; throughput/concurrency; rate-limit/retry
+  behavior; error rate; before→after performance delta; cost/tokens; volume (users/orders/files) when discloseable.
+
+## Appendix B — Quick examples (the bar)
+
+- **TL;DR bullet (good):** "Query selected 5 docs → confirmed 4 → 9 candidate chapters → 8 read →
+  answered in 88.5s / 44,691 tokens with 8 resolvable citations." **(bad):** "Very scalable, accurate RAG."
+- **Status (good):** "Working system (exercised on real data, not productionized); formal eval pending."
+  **(bad):** "Production-ready."
+- **Wording (good):** "recorded real-system run", "offline trace-replay demo", "metadata-first at this
+  corpus size". **(bad):** "production run", "full RAG demo", "no vector DB (because I'm smart)".
