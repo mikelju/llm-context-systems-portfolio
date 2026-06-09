@@ -31,7 +31,7 @@ human-in-the-loop.
 | # | Case study | Status |
 |---|-----------|--------|
 | 1 | **[RAG Knowledge System — Hierarchical + Full-Context Retrieval](case-studies/01-rag-knowledge-system/)** | ✅ Documented · real artifacts · runnable demo |
-| 2 | Multimodal RAG over Technical Manuals (page-as-image embeddings + vision LLM) | 🔜 Same format |
+| 2 | **[Multimodal RAG over Technical Manuals — page-as-image embeddings + vision LLM](case-studies/02-multimodal-rag-technical-manuals/)** | ✅ Documented · real artifacts · runnable offline vector search |
 | 3 | Agentic Document Q&A Bot (n8n + Gemini File API + memory) | 🔜 |
 | 4 | Document Intelligence — Manufacturer-Report Extraction (vision → structured JSON, HITL) | 🔜 |
 | 5 | MCP Server / Agent Tooling (Executor Agent) | 🔜 |

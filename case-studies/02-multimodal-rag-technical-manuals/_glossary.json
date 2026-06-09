@@ -1,0 +1,10 @@
+{
+  "_README": "Token vocabulary only (no real client terms). Real->token map stays OUT of repo. See ../CASE_STUDY_SPEC.md §6.",
+  "tokens": [
+    { "token": "a heating-systems field-service company (client)", "for": "the client company name", "applies_to": "prose" },
+    { "token": "FieldServCo", "for": "short label for the same client", "applies_to": "where a token is needed" },
+    { "token": "DocBot", "for": "the documentation-assistant bot product name", "applies_to": "everywhere" },
+    { "token": "FieldBot", "for": "the existing field-intervention bot product name", "applies_to": "everywhere" }
+  ],
+  "_kept_public": "Boiler manufacturer/model names (De Dietrich, BAXI, ADISA, Bosch, Buderus, …) are PUBLIC manufacturer manuals — kept for authenticity; they do not identify the client."
+}

@@ -1,0 +1,43 @@
+Multimodal RAG (page-as-image) — offline demo
+Real embeddings, real cosine search. No API key required.
+──────────────────────────────────────── A. The real index ─────────────────────────────────────────
+  122 documents · 6,896 pages embedded · model=gemini-embedding-2 · dim=1536 · top_k=5
+  Each page is embedded AS AN IMAGE (preserves tables/diagrams). Retrieval = cosine over the page 
+vectors.
+─────────────── B. Live cosine top-K over a 120-page sample (offline, real vectors) ────────────────
+  seed page: DEDIETRICH_C330-C630_REGULACION-DIEMATIC_NOT-300028434-A.pdf (p1)
+┌──────┬───────┬──────────────────────────────────────────────────┬──────┐
+│ rank │ score │ file                                             │ page │
+├──────┼───────┼──────────────────────────────────────────────────┼──────┤
+│ 1    │ 0.744 │ DEDIETRICH_C330-C630_REGULACION-INICONTROL_NOT-3 │ 40   │
+│ 2    │ 0.708 │ DEDIETRICH_C330-C630_INSTRUCCIONES-INSTALACION-U │ 65   │
+│ 3    │ 0.704 │ DEDIETRICH_ELIDENS-C140_INSTRUCCIONES-INICONTROL │ 79   │
+│ 4    │ 0.693 │ DEDIETRICH_REGULACION-ISYSTEM_NOT-7600675-001-01 │ 48   │
+│ 5    │ 0.690 │ DEDIETRICH_C610_MANTENIMIENTO_NOT-7600531-001-01 │ 13   │
+└──────┴───────┴──────────────────────────────────────────────────┴──────┘
+  Nearest pages cluster around the same model/topic — the vector space works.
+───────────── C. Recorded nearest-neighbour results over the FULL index (6,896 pages) ──────────────
+
+  seed: DEDIETRICH_GT-430_INSTRUCCIONES-MONTAJE.pdf (p13)
+    0.773  DEDIETRICH_GT-530_INSTRUCCIONES-MONTAJE.pdf (p15)
+    0.755  DEDIETRICH_GT-530_INSTRUCCIONES-MONTAJE.pdf (p14)
+    0.743  DEDIETRICH_GT-530_INSTRUCCIONES-MONTAJE.pdf (p16)
+    0.728  DEDIETRICH_GT-430_INSTRUCCIONES-MONTAJE.pdf (p14)
+    0.725  DEDIETRICH_GT-530_INSTRUCCIONES-MONTAJE.pdf (p37)
+
+  seed: DEDIETRICH_C310_MANUAL-CONDENSACION.pdf (p8)
+    0.859  DEDIETRICH_C610-ECO_NOTICIA_300007884-001.pdf (p7)
+    0.812  DEDIETRICH_C610_MANTENIMIENTO_NOT-7600531-001-01.pdf (p15)
+    0.810  DEDIETRICH_C330-C630_MANUAL-INSTALACION-MANTENIMIENTO.pdf (p15)
+    0.810  DEDIETRICH_C330-C630_INSTRUCCIONES-INSTALACION-UTILIZACION-MANTENIMIENTO.pdf (p15)
+    0.793  DEDIETRICH_C330-C630_INSTRUCCIONES-INSTALACION-UTILIZACION-MANTENIMIENTO.pdf (p16)
+
+  seed: DEDIETRICH_REGULACION-ISYSTEM_NOT-7600675-001-01.pdf (p32)
+    0.958  DEDIETRICH_C330-C630_DIEMATIC-ISYSTEM_NOT-7600675-001-05_2014.pdf (p32)
+    0.927  DEDIETRICH_C330-C630_REGULACION-DIEMATIC_NOT-300028434-A.pdf (p31)
+    0.901  DEDIETRICH_REGULACION-ISYSTEM_NOT-7600675-001-01.pdf (p31)
+    0.890  DEDIETRICH_C330-C630_DIEMATIC-ISYSTEM_NOT-7600675-001-05_2014.pdf (p31)
+    0.847  DEDIETRICH_REGULACION-ISYSTEM_NOT-7600675-001-01.pdf (p53)
+
+This shows the deterministic retrieval core on real data. The NL-query embedding and the vision-LLM 
+answer step use the live API and are not run here. Not the full system.

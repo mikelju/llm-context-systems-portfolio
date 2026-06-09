@@ -1,0 +1,485 @@
+{
+  "_note": "120-page sample of the REAL embedding index (public manuals) so the demo runs cosine top-K offline. L2-normalized gemini-embedding-2 (dim 1536). Row i in the .npy matches rows[i] here.",
+  "rows": [
+    {
+      "file": "DEDIETRICH_C330-C630_REGULACION-DIEMATIC_NOT-300028434-A.pdf",
+      "page": 1
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_REGULACION-DIEMATIC_NOT-300028434-A.pdf",
+      "page": 58
+    },
+    {
+      "file": "DEDIETRICH_GT-430_INSTRUCCIONES-MONTAJE.pdf",
+      "page": 27
+    },
+    {
+      "file": "RENDAMAX_R40-EVO_MANUAL-INSTALACION.pdf",
+      "page": 44
+    },
+    {
+      "file": "SAUNIER-DUVAL_THERMOMASTER-CONDENS-F45_INSTRUCCIONES-INSTALACION.pdf",
+      "page": 53
+    },
+    {
+      "file": "SIME_MURELLE-HE110R_MANUAL.pdf",
+      "page": 26
+    },
+    {
+      "file": "SIME_MURELLE-HE110R_MANUAL.pdf",
+      "page": 83
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_REGULACION-INICONTROL_NOT-300028464-A.pdf",
+      "page": 40
+    },
+    {
+      "file": "ADISA_ADI-CD_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_03-2011_ANTERIOR.pdf",
+      "page": 53
+    },
+    {
+      "file": "ADISA_ADI-CD_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_04-2011.pdf",
+      "page": 51
+    },
+    {
+      "file": "ADISA_ADI-CD_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_06-2010_ANTERIOR.pdf",
+      "page": 48
+    },
+    {
+      "file": "ADISA_ADI-HT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_03-2011_ANTERIOR.pdf",
+      "page": 47
+    },
+    {
+      "file": "ADISA_ADI-HT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_04-2011.pdf",
+      "page": 45
+    },
+    {
+      "file": "ADISA_ADI-HT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_08-2010_ANTERIOR.pdf",
+      "page": 42
+    },
+    {
+      "file": "ADISA_ADI-HT_MANUAL-TECNICO-INSTALACION-USO-MANTENIMIENTO_08-2012.pdf",
+      "page": 41
+    },
+    {
+      "file": "ADISA_ADI-LT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_03-2011.pdf",
+      "page": 21
+    },
+    {
+      "file": "ADISA_ADI-LT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_07-2013.pdf",
+      "page": 18
+    },
+    {
+      "file": "ADISA_ADI-LT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_07-2013.pdf",
+      "page": 75
+    },
+    {
+      "file": "ADISA_ADI-LT_DOSSIER-TECNICO-INSTALACION-USO-MANTENIMIENTO_ANTERIOR.pdf",
+      "page": 53
+    },
+    {
+      "file": "ADISA_ADI-LT_MANUAL-TECNICO-INSTALACION-USO-MANTENIMIENTO_06-2012.pdf",
+      "page": 52
+    },
+    {
+      "file": "ADISA_ADI-LT_MANUAL-TECNICO-INSTALACION-USO-MANTENIMIENTO_09-2016.pdf",
+      "page": 31
+    },
+    {
+      "file": "ADISA_ADINOX-BT_DOSSIER-TECNICO_02-2006.pdf",
+      "page": 12
+    },
+    {
+      "file": "ADISA_ADISA-BT_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 13
+    },
+    {
+      "file": "ADISA_ADISA-BT_DOSSIER-TECNICO_12-2007.pdf",
+      "page": 31
+    },
+    {
+      "file": "ADISA_BT-INOX_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 11
+    },
+    {
+      "file": "ADISA_BT-INOX_DOSSIER-TECNICO_03-2009.pdf",
+      "page": 18
+    },
+    {
+      "file": "ADISA_BTR_DOSSIER-TECNICO.pdf",
+      "page": 20
+    },
+    {
+      "file": "ADISA_DUPLEX-EVO_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 17
+    },
+    {
+      "file": "ADISA_DUPLEX-EVO_DOSSIER-TECNICO_03-2009.pdf",
+      "page": 32
+    },
+    {
+      "file": "ADISA_DUPLEX_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 10
+    },
+    {
+      "file": "ADISA_EUROBONGAS-BT_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 16
+    },
+    {
+      "file": "ADISA_EUROBONGAS-BT_DOSSIER-TECNICO_12-2007.pdf",
+      "page": 32
+    },
+    {
+      "file": "ADISA_EVINOX_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 4
+    },
+    {
+      "file": "ADISA_MEGADINOX-BT_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 9
+    },
+    {
+      "file": "ADISA_MEGADINOX-CD_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 17
+    },
+    {
+      "file": "ADISA_MEGADUPLEX_DOSSIER-TECNICO_02-2007.pdf",
+      "page": 23
+    },
+    {
+      "file": "BAXI_BIOS-PLUS-130F-150F_MANUAL-INSTALACION-MONTAJE-FUNCIONAMIENTO.pdf",
+      "page": 8
+    },
+    {
+      "file": "BAXI_PLATINUM-COMPACT-24F-ECO_MANUAL-INSTALADOR.pdf",
+      "page": 9
+    },
+    {
+      "file": "BOSCH_LOGABLOK_MANUAL-PLANIFICACION-EQUIPOS-AUTONOMOS.pdf",
+      "page": 2
+    },
+    {
+      "file": "BUDERUS_LOGAMAX-GB162-100_INSTRUCCIONES-SERVICIO.pdf",
+      "page": 27
+    },
+    {
+      "file": "BUDERUS_LOGAMAX-GB162-100_INSTRUCCIONES-SERVICIO.pdf",
+      "page": 84
+    },
+    {
+      "file": "BUDERUS_LOGANO-PLUS-GB312_INSTRUCCIONES-MONTAJE-MANTENIMIENTO.pdf",
+      "page": 41
+    },
+    {
+      "file": "DEDIETRICH_C230-ECO_INSTRUCCIONES-UTILIZACION_NOT-300015145-C_2009.pdf",
+      "page": 22
+    },
+    {
+      "file": "DEDIETRICH_C230_MANUAL-INSTRUCCIONES-DIEMATIC-M3_NOT-300015244-05_2018.pdf",
+      "page": 35
+    },
+    {
+      "file": "DEDIETRICH_C310_MANUAL-CONDENSACION.pdf",
+      "page": 16
+    },
+    {
+      "file": "DEDIETRICH_C310_MANUAL-CONDENSACION.pdf",
+      "page": 73
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_DIEMATIC-ISYSTEM_NOT-7600675-001-05_2014.pdf",
+      "page": 30
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_DIEMATIC-ISYSTEM_NOT-7600675-001-05_2014.pdf",
+      "page": 87
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_INSTRUCCIONES-INSTALACION-UTILIZACION-MANTENIMIENTO.pdf",
+      "page": 8
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_INSTRUCCIONES-INSTALACION-UTILIZACION-MANTENIMIENTO.pdf",
+      "page": 65
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_MANUAL-INSTALACION-MANTENIMIENTO.pdf",
+      "page": 34
+    },
+    {
+      "file": "DEDIETRICH_C330-C630_REGULACION-INICONTROL_NOT-300028464-A_v2.pdf",
+      "page": 3
+    },
+    {
+      "file": "DEDIETRICH_C340-C640_INSTRUCCIONES_NOT-7762706-02.pdf",
+      "page": 16
+    },
+    {
+      "file": "DEDIETRICH_C340-C640_INSTRUCCIONES_NOT-7762706-02.pdf",
+      "page": 73
+    },
+    {
+      "file": "DEDIETRICH_C340-C640_INSTRUCCIONES_NOT-7762706-02.pdf",
+      "page": 130
+    },
+    {
+      "file": "DEDIETRICH_C340-C640_INSTRUCCIONES_NOT-7762706-02.pdf",
+      "page": 187
+    },
+    {
+      "file": "DEDIETRICH_C610-ECO_NOTICIA_300007884-001.pdf",
+      "page": 16
+    },
+    {
+      "file": "DEDIETRICH_C610_MANTENIMIENTO_NOT-7600531-001-01.pdf",
+      "page": 13
+    },
+    {
+      "file": "DEDIETRICH_C610_MANTENIMIENTO_NOT-7600531-001-01.pdf",
+      "page": 70
+    },
+    {
+      "file": "DEDIETRICH_DTG-120_INSTRUCCIONES_PARTE-2-PAG-10-19.pdf",
+      "page": 2
+    },
+    {
+      "file": "DEDIETRICH_DTG-330S_INSTRUCCIONES-INSTALACION-MANTENIMIENTO.pdf",
+      "page": 18
+    },
+    {
+      "file": "DEDIETRICH_DTG-330_INSTRUCCIONES-UTILIZACION.pdf",
+      "page": 7
+    },
+    {
+      "file": "DEDIETRICH_ELIDENS-C140_INSTRUCCIONES-CALDERA_NOT-7702838-02.pdf",
+      "page": 48
+    },
+    {
+      "file": "DEDIETRICH_ELIDENS-C140_INSTRUCCIONES-DIEMATIC-EVO_NOT-7685215-02.pdf",
+      "page": 45
+    },
+    {
+      "file": "DEDIETRICH_ELIDENS-C140_INSTRUCCIONES-INICONTROL_NOT-7685191-02.pdf",
+      "page": 22
+    },
+    {
+      "file": "DEDIETRICH_ELIDENS-C140_INSTRUCCIONES-INICONTROL_NOT-7685191-02.pdf",
+      "page": 79
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANTENIMIENTO-DIEMATIC-EVO.pdf",
+      "page": 56
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANTENIMIENTO-DIEMATIC-EVO.pdf",
+      "page": 113
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANTENIMIENTO-INICONTROL2.pdf",
+      "page": 42
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANUAL-USUARIO-DIEMATIC-EVO.pdf",
+      "page": 23
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANUAL-USUARIO-DIEMATIC-EVO.pdf",
+      "page": 80
+    },
+    {
+      "file": "DEDIETRICH_EVODENS-AMC-PRO-45-115_MANUAL-USUARIO-INICONTROL2.pdf",
+      "page": 45
+    },
+    {
+      "file": "DEDIETRICH_GT-430_INSTRUCCIONES-INSTALACION-MANTENIMIENTO.pdf",
+      "page": 26
+    },
+    {
+      "file": "DEDIETRICH_GT-430_INSTRUCCIONES-INSTALACION-MANTENIMIENTO_300011895.pdf",
+      "page": 39
+    },
+    {
+      "file": "DEDIETRICH_GT-530_INSTRUCCIONES-MONTAJE.pdf",
+      "page": 56
+    },
+    {
+      "file": "DEDIETRICH_MCA-160_MANUAL-DIEMATIC-EVOLUTION.pdf",
+      "page": 49
+    },
+    {
+      "file": "DEDIETRICH_MCA-160_MANUAL-INSTRUCCIONES-DIEMATIC-EVO.pdf",
+      "page": 10
+    },
+    {
+      "file": "DEDIETRICH_MCA-160_MANUAL-INSTRUCCIONES-DIEMATIC-EVO.pdf",
+      "page": 67
+    },
+    {
+      "file": "DEDIETRICH_MCA-160_MANUAL-INSTRUCCIONES-INICONTROL.pdf",
+      "page": 36
+    },
+    {
+      "file": "DEDIETRICH_MCA-PRO-45-115_MANUAL-INSTRUCCIONES_NOT-300024769-09_2018.pdf",
+      "page": 5
+    },
+    {
+      "file": "DEDIETRICH_MCA-PRO-45-115_MANUAL-INSTRUCCIONES_NOT-300024769-09_2018.pdf",
+      "page": 62
+    },
+    {
+      "file": "DEDIETRICH_MCA-PRO-45-115_MANUAL-INSTRUCCIONES_NOT-300024769-09_2018.pdf",
+      "page": 119
+    },
+    {
+      "file": "DEDIETRICH_MCA-PRO_INSTRUCCIONES-INSTALACION-MANTENIMIENTO-CASCADA.pdf",
+      "page": 32
+    },
+    {
+      "file": "DEDIETRICH_MCA-PRO_INSTRUCCIONES-UTILIZACION_NOT-300024770-001-07_2015.pdf",
+      "page": 45
+    },
+    {
+      "file": "DEDIETRICH_NANEO-EMC-M_INSTRUCCIONES-INSTALACION-MANTENIMIENTO_7601969-03.pdf",
+      "page": 38
+    },
+    {
+      "file": "DEDIETRICH_NANEO-EMC-M_INSTRUCCIONES-INSTALACION-MANTENIMIENTO_NOT-7601969-08.pdf",
+      "page": 11
+    },
+    {
+      "file": "DEDIETRICH_NANEO-EMC-M_INSTRUCCIONES-INSTALACION-MANTENIMIENTO_NOT-7601969-08.pdf",
+      "page": 68
+    },
+    {
+      "file": "DEDIETRICH_REGULACION-INICONTROL_NOT-7600701-001-01.pdf",
+      "page": 35
+    },
+    {
+      "file": "DEDIETRICH_REGULACION-ISYSTEM_NOT-7600675-001-01.pdf",
+      "page": 48
+    },
+    {
+      "file": "FERROLI_ECONCEPT-100_MANUAL-INSTALACION.pdf",
+      "page": 13
+    },
+    {
+      "file": "FERROLI_ENERGY-TOP-B_MANUAL-INSTALACION-USO-MANTENIMIENTO.pdf",
+      "page": 42
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2-S-GS_CONEXIONES.pdf",
+      "page": 11
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2-S-GS_MANEJO.pdf",
+      "page": 8
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2-S-GS_MANEJO.pdf",
+      "page": 65
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2-S-GS_MANTENIMIENTO.pdf",
+      "page": 26
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2-S-GS_SOFTWARE.pdf",
+      "page": 55
+    },
+    {
+      "file": "KWB_PELLETFIRE-PLUS-MF2_MONTAJE.pdf",
+      "page": 8
+    },
+    {
+      "file": "LASIAN_BIOSELECT-90-1160_MANUAL-CALDERA-500KW.pdf",
+      "page": 9
+    },
+    {
+      "file": "LASIAN_BIOSELECT-90-1160_MANUAL-CONTROLADOR.pdf",
+      "page": 18
+    },
+    {
+      "file": "REMEHA_QUINTA-45-65_MANUAL-INSTRUCCIONES.pdf",
+      "page": 51
+    },
+    {
+      "file": "REMEHA_QUINTA-PRO-45-65_MANUAL-INSTRUCCIONES.pdf",
+      "page": 40
+    },
+    {
+      "file": "RENDAMAX_ALDIN-R18_MANUAL-INSTALACION_IT-051214.pdf",
+      "page": 29
+    },
+    {
+      "file": "RENDAMAX_R18_DOSSIER-TECNICO.pdf",
+      "page": 30
+    },
+    {
+      "file": "RENDAMAX_R2000-A_DOSSIER-TECNICO.pdf",
+      "page": 31
+    },
+    {
+      "file": "RENDAMAX_R2700-R2800-R2900_DOCUMENTACION-TECNICA_DOC2004-2789.pdf",
+      "page": 36
+    },
+    {
+      "file": "RENDAMAX_R300-R500_DOCUMENTACION-TECNICA.pdf",
+      "page": 5
+    },
+    {
+      "file": "RENDAMAX_R3400_DOCUMENTACION-TECNICA.pdf",
+      "page": 1
+    },
+    {
+      "file": "RENDAMAX_R3400_DOCUMENTACION-TECNICA.pdf",
+      "page": 58
+    },
+    {
+      "file": "RENDAMAX_R40_MANUAL-MONTAJE-CASCADA_DOC6084ES.pdf",
+      "page": 43
+    },
+    {
+      "file": "RENDAMAX_R40_MANUAL-PLANIFICACION_DOC6080ES.pdf",
+      "page": 52
+    },
+    {
+      "file": "RENDAMAX_R40_MANUAL-USO-INSTALACION_DOC6078ES.pdf",
+      "page": 17
+    },
+    {
+      "file": "RENDAMAX_R40_MANUAL-USO-INSTALACION_DOC6078ES.pdf",
+      "page": 74
+    },
+    {
+      "file": "RENDAMAX_R40_MANUAL-USO-INSTALACION_DOC6078ES.pdf",
+      "page": 131
+    },
+    {
+      "file": "RENDAMAX_RWF40_MANUAL-USUARIO-CONTROLADOR.pdf",
+      "page": 24
+    },
+    {
+      "file": "UNICAL_MODULEX-E8_MANUAL.pdf",
+      "page": 5
+    },
+    {
+      "file": "UNICAL_SUPERMODULEX_MANUAL-INSTALACION-USO-MANTENIMIENTO.pdf",
+      "page": 38
+    },
+    {
+      "file": "WEISHAUPT_THERMO-CONDENS-WTC-45-A-60-A_MANUAL-MONTAJE-FUNCIONAMIENTO.pdf",
+      "page": 35
+    },
+    {
+      "file": "WOLF_CGB-75-100_INSTRUCCIONES-MONTAJE-SERVICIO.pdf",
+      "page": 4
+    },
+    {
+      "file": "WOLF_MK-2-CALDERA-FUNDICION_DOCUMENTACION-PLANIFICACION-INSTRUCCIONES-MONTAJE.pdf",
+      "page": 5
+    },
+    {
+      "file": "YGNIS_HDPY_MANUAL_2015.pdf",
+      "page": 22
+    }
+  ]
+}

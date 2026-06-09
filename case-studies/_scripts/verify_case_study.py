@@ -161,12 +161,15 @@ def main():
     # 4. demo: runs offline + caveat; example_output carries metrics + caveat
     demo = case / "demo" / "run_demo.py"
     eo = case / "demo" / "example_output.txt"
-    caveat_re = re.compile(r"not the (full|production) .*engine|trace-replay|approximation of Step", re.I)
+    caveat_re = re.compile(
+        r"not the full (engine|system)|not the production|trace-replay|approximation|"
+        r"not run( here)?|does not call any model|no API key", re.I)
     if eo.exists():
         eot = eo.read_text(encoding="utf-8", errors="replace")
         r.add(bool(caveat_re.search(eot)), "example_output.txt carries the honesty caveat")
-        present = sum(1 for v in trace_metric_values if v in eot)
-        r.add(present > 0, "example_output.txt shows recorded metrics", f"{present} metric tokens found")
+        if trace_metric_values:   # only when the case ships metric-bearing traces
+            present = sum(1 for v in trace_metric_values if v in eot)
+            r.add(present > 0, "example_output.txt shows recorded metrics", f"{present} metric tokens found")
     if demo.exists():
         res = run([sys.executable, str(demo)], cwd=str(demo.parent))
         ok = bool(res) and res.returncode == 0
