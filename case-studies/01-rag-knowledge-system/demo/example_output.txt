@@ -43,6 +43,10 @@ Query: "cycling power zones ftp vo2max training"
 │ 6    │ 0     │ Oil Burner Maintenance Protocol    │                           │
 └──────┴───────┴────────────────────────────────────┴───────────────────────────┘
 Step 1 passes 1 candidate document(s) to the LLM stages.
+
+This pre-filter is an offline approximation of Step 1, not a replay of the exact LLM selection — it 
+may pass a different number of candidates than the recorded run (here 3 vs. the real run's 5 for the
+safety query).
 ────────────────────── C. Real recorded runs (metrics produced by the system) ──────────────────────
 
 Run 1 - 'physiological power zones' (single large book, hierarchical)
@@ -61,4 +65,4 @@ synthesis prompt
 
 Steps 2-5 are LLM-driven in the real system; the metrics above are from recorded runs. Step 1 is 
 reproduced here deterministically and offline. This is a trace-replay + pre-filter demo, not the 
-production RAG engine.
+full RAG engine.

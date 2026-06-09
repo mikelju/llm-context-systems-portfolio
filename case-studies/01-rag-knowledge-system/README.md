@@ -56,7 +56,7 @@ the reliability mechanisms, and the iterative fixes.
 | [the-bug-i-fixed.md](the-bug-i-fixed.md) | A real failure (corrupt scanned-PDF TOC) and the fix |
 | [lessons-learned.md](lessons-learned.md) | What I'd keep and what I'd change |
 | [artifacts/](artifacts/) | **Real, sanitized** catalog, query traces and ingestion log |
-| [demo/](demo/) | `python run_demo.py` — an **offline trace-replay + Step-1 pre-filter** demo (not the production engine) |
+| [demo/](demo/) | `python run_demo.py` — an **offline trace-replay + Step-1 pre-filter** demo (not the full engine) |
 
 ## What is real / replayed / simulated
 
@@ -66,7 +66,7 @@ Being precise about this is the point — it's what separates evidence from a pr
 |---|---|---|
 | Catalog, query traces, ingestion log ([`artifacts/`](artifacts/)) | **Real** (sanitized) | Actual system outputs; only client/site/brand names changed |
 | Funnel + cost/latency/token metrics | **Real, replayed** | Read straight from the recorded traces; not recomputed |
-| Step 1 in the demo (catalog pre-filter) | **Simulated** | Deterministic keyword overlap standing in for the production LLM selection, so it runs offline |
+| Step 1 in the demo (catalog pre-filter) | **Simulated** | Deterministic keyword overlap approximating (not replaying) the real LLM selection, so it runs offline; may pass a different candidate count than the recorded run |
 | Steps 2–5 (chapter selection, reading, synthesis) | **Not run in the demo** | LLM-driven in the real system; represented only by the recorded metrics |
 | `FULL_CONTEXT_MAX_PAGES = 80`, tool names, the bug & fix | **Real** | From the actual codebase |
 

@@ -16,9 +16,9 @@ real, sanitized artifacts shipped in ../artifacts:
 
 Honesty note: in the real system, Steps 2-5 (chapter selection, reading,
 synthesis) are performed by an LLM. This demo does NOT call any model and is
-NOT the production engine. It reproduces the deterministic control flow
-(Step 1) and reports the recorded metrics of the LLM-driven steps. That
-separation is the point: the expensive part is bounded and measurable.
+NOT the full RAG engine. It reproduces the deterministic control flow (Step 1,
+as an offline approximation) and reports the recorded metrics of the LLM-driven
+steps. That separation is the point: the expensive part is bounded and measurable.
 
 Run:
     python run_demo.py
@@ -179,6 +179,9 @@ def main() -> None:
     # Queries mirror the real recorded runs: the boiler corpus is Spanish, the book is English.
     prefilter(docs, "seguridad mantenimiento caldera gasoil instalación térmica")
     prefilter(docs, "cycling power zones ftp vo2max training")
+    _print("\n[dim]This pre-filter is an offline approximation of Step 1, not a replay of the exact "
+           "LLM selection — it may pass a different number of candidates than the recorded run "
+           "(here 3 vs. the real run's 5 for the safety query).[/dim]")
 
     _rule("C. Real recorded runs (metrics produced by the system)")
     show_trace(power, "Run 1 - 'physiological power zones' (single large book, hierarchical)")
@@ -186,7 +189,7 @@ def main() -> None:
 
     _print("\n[dim]Steps 2-5 are LLM-driven in the real system; the metrics above are from "
            "recorded runs. Step 1 is reproduced here deterministically and offline. "
-           "This is a trace-replay + pre-filter demo, not the production RAG engine.[/dim]")
+           "This is a trace-replay + pre-filter demo, not the full RAG engine.[/dim]")
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ designed and built for client and internal projects.
 ## What makes this portfolio different
 
 - **Real artifacts, not just prose** — sanitized catalogs, recorded query traces with real token/latency numbers, and ingestion logs taken from the actual system.
-- **A runnable demo** — `python run_demo.py` reproduces the retrieval control flow offline (no API key, no network) and reports metrics from real recorded runs.
+- **A runnable demo** — `python run_demo.py` replays recorded real-system traces and reproduces the Step-1 pre-filter offline (no API key, no network).
 - **Honest scope** — every case study states what is *built*, what is *measured*, and what is *not* (yet).
 
 ## Focus areas

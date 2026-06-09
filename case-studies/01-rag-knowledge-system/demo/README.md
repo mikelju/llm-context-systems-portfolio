@@ -9,14 +9,20 @@ using the real sanitized artifacts in [`../artifacts`](../artifacts).
 2. **Step 1 reproduced live** — a deterministic catalog pre-filter that ranks candidate documents
    for a query from their titles/tags/summaries. This is the only step reproduced in code; it
    needs no model.
-3. **Real recorded runs** — loads two production query traces and prints the retrieval **funnel**
-   (docs selected → confirmed → candidate chapters → chapters read) and the **real cost/latency
-   metrics** (seconds, API calls, tokens, source references).
+3. **Real recorded runs** — loads two recorded real-system query traces and prints the retrieval
+   **funnel** (docs selected → confirmed → candidate chapters → chapters read) and the **real
+   cost/latency metrics** (seconds, API calls, tokens, source references).
 
-> **Honesty note.** In production, Steps 2–5 (chapter selection, reading, synthesis) are
+> **Honesty note.** In the real system, Steps 2–5 (chapter selection, reading, synthesis) are
 > LLM-driven. The demo does **not** call any model — it reproduces the deterministic control flow
 > (Step 1) and reports the *recorded* metrics of the LLM steps. The numbers were produced by the
 > real system, not invented for the portfolio.
+>
+> The deterministic pre-filter is an **offline approximation of Step 1**, not a replay of the
+> exact LLM selection — so it may pass a different number of candidates than the recorded run
+> (e.g. 3 vs. the 5 the real system selected for the safety query). The funnel/metrics shown for
+> the recorded runs are the real ones; the pre-filter just illustrates the *kind* of decision
+> Step 1 makes.
 
 ## Run it
 
