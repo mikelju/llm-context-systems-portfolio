@@ -1,6 +1,6 @@
 # LLM Context Systems — Engineering Portfolio
 
-**Mikel · AI Knowledge Systems Engineer** — RAG, context engineering, document intelligence, agentic workflows, MCP/tooling.
+**Mikel Ugarte · AI Knowledge Systems Engineer** — RAG, context engineering, document intelligence, agentic workflows, MCP/tooling.
 
 I build the layer between an LLM and real, messy company information: how documents get
 processed, how the *right* context is selected, how agents call deterministic tools, and how
@@ -50,4 +50,6 @@ been removed or generalized. Artifacts are *sanitized copies of real outputs*; e
 
 ## Contact
 
-GitHub: [github.com/mikelju](https://github.com/mikelju) · *LinkedIn / email: add your links here.*
+- **LinkedIn:** [mikel-ugarte-gil](https://www.linkedin.com/in/mikel-ugarte-gil/)
+- **Email:** [mikelju@gmail.com](mailto:mikelju@gmail.com)
+- **GitHub:** [github.com/mikelju](https://github.com/mikelju)
