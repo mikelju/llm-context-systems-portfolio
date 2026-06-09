@@ -8,7 +8,8 @@ multi-word terms win), to every text file under a target folder, in place.
 
 Usage:
     python case-studies/_scripts/sanitize.py 01-rag-knowledge-system ../private/map.json
-    # map.json: {"Real Client S.L.": "an industrial supplier (client)", "Pamplona": "[location]"}
+    # map.json: {"Acme Heating S.L.": "an industrial supplier (client)", "Springfield": "[location]"}
+    #           (use FICTIONAL examples in docs — never a real client term, even as an example)
 
 After running, ALWAYS run verify_case_study.py (with --real-terms pointing at the map's
 keys, and --history) before committing. This script does NOT regenerate ids, coarsen dates,

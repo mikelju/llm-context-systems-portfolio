@@ -65,8 +65,9 @@ class Report:
         print(f"\n  {len(self.items)} checks | {n_fail} FAIL | {n_warn} WARN")
 
 def text_files(folder: Path):
+    skip = {".venv", "__pycache__", ".git"}
     for p in folder.rglob("*"):
-        if p.is_file() and p.suffix.lower() in TEXT_EXT and ".venv" not in p.parts and "__pycache__" not in p.parts:
+        if p.is_file() and p.suffix.lower() in TEXT_EXT and not (skip & set(p.parts)):
             yield p
 
 def load_jsons(art: Path):
@@ -197,21 +198,22 @@ def main():
     if args.real_terms:
         terms = [t for t in Path(args.real_terms).read_text(encoding="utf-8").splitlines() if t.strip()]
         allv = set().union(*(variants(t) for t in terms)) if terms else set()
+        # sweep the WHOLE repo (a real term anywhere — shared scripts, template, spec — is a leak)
+        swept = list(text_files(ROOT))
         hits = []
-        for p in text_files(case):
+        for p in swept:
             body = p.read_text(encoding="utf-8", errors="replace")
             for v in allv:
-                if v and v in body: hits.append(f"{p.name}: '{v}'")
-        r.add(not hits, f"real-term sweep ({len(terms)} terms, {len(allv)} variants)", "; ".join(sorted(set(hits))[:6]))
-        # negative control: a known-removed term must be absent (proves the sweep reaches the folder)
-        if terms:
-            r.add(True, "negative control", f"swept {len(list(text_files(case)))} files")
+                if v and v in body: hits.append(f"{p.relative_to(ROOT)}: '{v}'")
+        r.add(not hits, f"real-term sweep over whole repo ({len(terms)} terms, {len(allv)} variants, {len(swept)} files)",
+              "; ".join(sorted(set(hits))[:6]))
         if args.history:
+            offenders = []
             for t in terms:
                 g = run(["git", "log", "--all", "-S", t, "--oneline"], cwd=str(ROOT))
-                bad = bool(g and g.stdout.strip())
-                r.add(not bad, f"git history clean for a real term", t if bad else "", )
-                break  # spot-check one; CI should loop all
+                if g and g.stdout.strip(): offenders.append(t)
+            r.add(not offenders, f"git history clean (all {len(terms)} terms)",
+                  ("in history: " + ", ".join(offenders)) if offenders else "")
     else:
         r.add(True, "real-term sweep skipped", "run with --real-terms <out-of-repo file> before publishing", warn=True)
 

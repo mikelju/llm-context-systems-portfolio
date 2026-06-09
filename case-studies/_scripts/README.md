@@ -13,11 +13,13 @@ The **real → token map** must live **outside the repo** (it contains the real 
 
 ```json
 {
-  "Real Client S.L.": "an industrial supplier (client)",
-  "Pamplona": "[location]",
-  "Real Site Name": "Site A"
+  "Acme Heating S.L.": "an industrial supplier (client)",
+  "Springfield": "[location]",
+  "Riverside Plant": "Site A"
 }
 ```
+
+> Use **fictional** examples in committed docs — never a real client term, even as an illustration.
 
 It replaces longest keys first and rewrites text files in place. It does **not** regenerate ids,
 coarsen dates, or strip binary metadata — do those per spec §6.
