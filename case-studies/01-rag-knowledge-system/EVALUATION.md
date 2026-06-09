@@ -23,6 +23,23 @@ as the architecture.
   `gemini_client.py`).
 - **Robustness** on scanned / visually rich documents.
 
+## Faithfulness — claim → source (Run B, recorded)
+
+Traceability is only worth anything if the cited sources actually support the answer. For the
+cross-document safety run, a sample of the answer's claims maps to the chapters that were read
+(every `references[]` entry resolves to a `chapters_read` entry — verified mechanically):
+
+| Claim in the answer | Cited source (document → chapter) |
+|---|---|
+| Maintenance must be done by an authorized installer per RITE (RD 1027/2007) | Site A/B/C → "Instrucciones de seguridad y uso" (ch_03) |
+| Installations > 70 kW legally require a maintenance contract | Site A/B/C → ch_03 |
+| Reset button pressed for a maximum of 3 seconds; diagnose by LED blink | Oil Burner Maintenance Protocol → "Bloqueo y Seguridad" (ch_02) |
+| Flame-colour diagnosis (yellow/red/white) and black/white smoke meaning | Oil Burner Maintenance Protocol → ch_02 / ch_06 |
+| Preventive-maintenance frequencies (monthly / per-season) | Site A/B/C → "Programas y procedimiento de mantenimiento preventivo" (ch_05) |
+
+This is a manual mapping (acceptable for a prototype); the roadmap item is to automate it (assert
+every answer sentence resolves to a cited chapter).
+
 ## The "no answer" case (case 3)
 
 The most important *missing* test. The intended behavior, for a query with no support in the

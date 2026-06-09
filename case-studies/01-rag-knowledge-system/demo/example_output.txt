@@ -1,16 +1,16 @@
 The Librarian - offline retrieval-flow demo
 Real, sanitized artifacts. No API key required.
 ───────────────────────────── A. Knowledge base (catalog.sample.json) ──────────────────────────────
-┌────────────────────────────────────────┬───────────┬──────────────┬──────────┬───────┬─────────┐
-│ Title                                  │ Type      │ Strategy     │ Chapters │ Pages │ Lang    │
-├────────────────────────────────────────┼───────────┼──────────────┼──────────┼───────┼─────────┤
-│ Cycling Science                        │ pdf_mixed │ hierarchical │ 59       │ 0     │ en      │
-│ Industrial Inventory                   │ excel     │ hierarchical │ 154      │ -     │ unknown │
-│ Thermal Installation Manual (Site A)   │ pdf_mixed │ full_context │ -        │ 14    │ es      │
-│ Thermal Installation Manual (Site B)   │ pdf_mixed │ full_context │ -        │ 14    │ es      │
-│ Thermal Installation Manual (Site C -  │ pdf_mixed │ full_context │ -        │ 13    │ es      │
-│ Oil Burner Maintenance Protocol        │ pdf_text  │ full_context │ -        │ 1     │ es      │
-└────────────────────────────────────────┴───────────┴──────────────┴──────────┴───────┴─────────┘
+┌──────────────────────────────────────┬───────────┬──────────────┬──────────┬───────┬─────────┐
+│ Title                                │ Type      │ Strategy     │ Chapters │ Pages │ Lang    │
+├──────────────────────────────────────┼───────────┼──────────────┼──────────┼───────┼─────────┤
+│ Cycling Science                      │ pdf_mixed │ hierarchical │ 59       │ 0     │ en      │
+│ Industrial Inventory                 │ excel     │ hierarchical │ 154      │ -     │ unknown │
+│ Thermal Installation Manual (Site A) │ pdf_mixed │ full_context │ -        │ 14    │ es      │
+│ Thermal Installation Manual (Site B) │ pdf_mixed │ full_context │ -        │ 14    │ es      │
+│ Thermal Installation Manual (Site C) │ pdf_mixed │ full_context │ -        │ 13    │ es      │
+│ Oil Burner Maintenance Protocol      │ pdf_text  │ full_context │ -        │ 1     │ es      │
+└──────────────────────────────────────┴───────────┴──────────────┴──────────┴───────┴─────────┘
 
 6 documents | 2 hierarchical, 4 full_context (threshold: FULL_CONTEXT_MAX_PAGES = 80)
 ─────────────────── B. Step 1 reproduced live (deterministic catalog pre-filter) ───────────────────
@@ -63,6 +63,6 @@ Run 2 - 'safety measures' (cross-document over 4 manuals, hierarchical)
 synthesis prompt
   sources: answer cites 8 traceable (document -> chapter) references
 
-Steps 2-5 are LLM-driven in the real system; the metrics above are from recorded runs. Step 1 is 
-reproduced here deterministically and offline. This is a trace-replay + pre-filter demo, not the 
-full RAG engine.
+In the real system all 4 retrieval steps are LLM-driven; this demo approximates Step 1 
+deterministically and replays the recorded metrics for the rest. Trace-replay + pre-filter demo, not
+the full RAG engine.

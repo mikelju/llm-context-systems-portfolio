@@ -13,10 +13,10 @@ using the real sanitized artifacts in [`../artifacts`](../artifacts).
    **funnel** (docs selected → confirmed → candidate chapters → chapters read) and the **real
    cost/latency metrics** (seconds, API calls, tokens, source references).
 
-> **Honesty note.** In the real system, Steps 2–5 (chapter selection, reading, synthesis) are
-> LLM-driven. The demo does **not** call any model — it reproduces the deterministic control flow
-> (Step 1) and reports the *recorded* metrics of the LLM steps. The numbers were produced by the
-> real system, not invented for the portfolio.
+> **Honesty note.** In the real system all 4 retrieval steps are LLM-driven (Step 1 selection,
+> Steps 2–4 = index inspection, chapter selection/reading, synthesis). The demo does **not** call
+> any model — it approximates Step 1 deterministically and reports the *recorded* metrics of the
+> full run. The numbers were produced by the real system, not invented for the portfolio.
 >
 > The deterministic pre-filter is an **offline approximation of Step 1**, not a replay of the
 > exact LLM selection — so it may pass a different number of candidates than the recorded run

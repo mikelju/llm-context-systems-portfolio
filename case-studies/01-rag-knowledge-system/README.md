@@ -67,7 +67,7 @@ Being precise about this is the point — it's what separates evidence from a pr
 | Catalog, query traces, ingestion log ([`artifacts/`](artifacts/)) | **Real** (sanitized) | Actual system outputs; only client/site/brand names changed |
 | Funnel + cost/latency/token metrics | **Real, replayed** | Read straight from the recorded traces; not recomputed |
 | Step 1 in the demo (catalog pre-filter) | **Simulated** | Deterministic keyword overlap approximating (not replaying) the real LLM selection, so it runs offline; may pass a different candidate count than the recorded run |
-| Steps 2–5 (chapter selection, reading, synthesis) | **Not run in the demo** | LLM-driven in the real system; represented only by the recorded metrics |
+| Steps 2–4 (index inspection, chapter selection/reading, synthesis) | **Not run in the demo** | LLM-driven in the real system; represented only by the recorded metrics |
 | `FULL_CONTEXT_MAX_PAGES = 80`, tool names, the bug & fix | **Real** | From the actual codebase |
 
 ## Stack
@@ -79,7 +79,7 @@ PyMuPDF · pdfplumber · pandas · openpyxl · python-docx · python-pptx · Pil
 
 ## Status
 
-Internal framework / advanced prototype. Ingestion pipeline, performance optimization and the
+Working system (exercised on real data, not productionized). Ingestion pipeline, performance optimization and the
 dual retrieval strategy are **complete and exercised on real documents**; the query system is
 functional with selective visual reading and report expansion. A formal evaluation set is the
 main open item (see [reliability-and-evaluation.md](reliability-and-evaluation.md)).

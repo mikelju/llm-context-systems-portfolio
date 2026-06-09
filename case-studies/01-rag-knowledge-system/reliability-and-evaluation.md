@@ -14,30 +14,16 @@
 | Per-query metrics (time, calls, tokens) | `gemini_client.py` | Makes cost/latency regressions visible |
 | UTF-8 stdout on Windows | `process_batch.py` | Prevents `UnicodeEncodeError` crashes on Spanish/emoji output |
 
-## How I evaluate (and what's real vs pending)
+## How I evaluate
 
-> Full case matrix and the plan for a real eval suite: **[EVALUATION.md](EVALUATION.md)**.
+The two shipped query traces are concrete, recorded evaluation cases (funnel + token/latency cost
++ resolvable source references); a worked **claim→source faithfulness mapping** is shown for one
+answer. The full **case matrix**, the **negative ("no answer") case** status, and the plan for a
+labeled eval suite live in **[EVALUATION.md](EVALUATION.md)** — not duplicated here.
 
-**What I run today — worked, recorded examples.** Each query trace is a concrete evaluation case:
-the funnel, the chapters read, the **token/latency cost**, and the **source references** are all
-captured. The two shipped traces cover two of the three question types below:
-
-1. **Single-document** question → Run A (power zones): 1 doc, 5 chapters, 5 cited refs, 52.8k tokens.
-2. **Cross-document** question → Run B (safety): 4 docs, 8 chapters, 8 cited refs, 44.7k tokens.
-3. **No-answer-in-the-library** question → *not yet recorded* (the honest gap).
-
-**Evaluation dimensions I care about:**
-
-- retrieval precision & recall (did Step 1–3 select the right documents/chapters?);
-- **answer faithfulness** + **source traceability** (every claim points to a chapter);
-- latency and token cost per query;
-- robustness on scanned / visually rich documents.
-
-**The honest gap.** This is a prototype: there is **no formal labeled eval set yet**. The traces
-prove the system works and is *measurable*, but precision/recall numbers would require a curated
-question→expected-source set. Building that — plus the "no answer" refusal case and an automated
-faithfulness check (does every sentence map to a cited chapter?) — is the top item on the
-roadmap. I'd rather state that than dress an evaluation *plan* up as results.
+Honest gap: there is **no formal labeled eval set yet** (precision/recall vs. a curated
+question→expected-source set), and the negative case is not yet recorded. Both are the top roadmap
+items in EVALUATION.md.
 
 ## Known limitations
 

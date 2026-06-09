@@ -2,99 +2,99 @@
   "answer": "Los manuales de mantenimiento establecen un conjunto exhaustivo de recomendaciones, instrucciones y protocolos de seguridad para garantizar el correcto funcionamiento y minimizar riesgos en las instalaciones térmicas. A continuación, se detallan todas las medidas clasificadas por áreas:\n\n### 1. Normativa y Mantenimiento General\n- **Personal Cualificado:** El mantenimiento, manipulación y reparación de la instalación debe ser realizado exclusivamente por un instalador o mantenedor autorizado, de acuerdo con el RITE (Real Decreto 1027/2007).\n- **Contrato Obligatorio:** Las instalaciones con una potencia útil superior a 70 kW (ej. 405 kW o 980 kW) requieren legalmente un contrato de mantenimiento con una empresa autorizada.\n\n### 2. Protocolos de Emergencia\n- **Parada de Emergencia:** En caso de emergencia, se debe pulsar el botón de parada de emergencia (tipo seta) situado en el cuadro eléctrico o en el interior de la sala, y avisar al servicio de mantenimiento.\n- **Fugas de Agua:** \n  - *Fugas menores:* Cerrar las válvulas de entrada de agua y avisar a mantenimiento.\n  - *Fugas mayores:* Apagar el interruptor eléctrico general, asegurar que el circuito de llenado está cerrado, abrir las válvulas de vaciado si es necesario y notificar al mantenedor.\n\n### 3. Seguridad contra Incendios\n- **Sectorización:** La sala de máquinas/calderas es un sector de incendio con una resistencia mínima al fuego de R-180.\n- **Extintores:** Deben colocarse extintores cada 15 metros.\n- **Fuegos Eléctricos:** Si hay tensión eléctrica, **NUNCA usar agua**. Se deben utilizar extintores de polvo ABC en la entrada o extintores de CO2 cerca del cuadro eléctrico.\n\n### 4. Sala de Calderas y Señalización\n- **Carteles de Advertencia:** Deben advertir sobre puntos calientes (riesgo de quemaduras), instalaciones eléctricas (riesgo de electrocución) y manipulación no autorizada.\n- **Control de Acceso:** En la puerta debe figurar el cartel: 'SALA DE MÁQUINAS - PROHIBIDA LA ENTRADA A TODA PERSONA AJENA AL SERVICIO'.\n- **Documentación Visible:** Deben estar visibles y protegidas las instrucciones de parada de emergencia, datos de contacto de mantenimiento, teléfono de bomberos/emergencias (112) y el esquema hidráulico.\n- **Identificación de Tuberías (UNE 100.100):** Deben marcarse con flechas indicando la dirección del flujo y códigos de colores: Agua Fría de Consumo Humano (Azul/Verde/Azul), Agua Caliente Sanitaria (Azul/Verde/Azul x2) y Calefacción (Verde).\n\n### 5. Operación, Llenado y Prevención\n- **Presión y Llenado:** La instalación debe mantenerse a una presión en frío específica (entre 2.5 y 4.5 Bar según la instalación). El llenado debe hacerse con la caldera parada y fría, por personal cualificado, abriendo las válvulas hasta alcanzar la presión mínima y purgando en los puntos altos.\n- **Prevención de Heladas:** No se debe apagar la caldera ante riesgo de heladas; el sistema cuenta con una consigna automática anti-hielo.\n- **Ventilación:** Queda terminantemente prohibido obstruir o alterar los conductos y rejillas de ventilación sin la aprobación de un técnico competente.\n\n### 6. Seguridad en Quemadores y Combustión\n- **Comprobación Inicial:** Antes de operar, verificar suministro de combustible y electricidad, limpiar la fotocélula (sensor de llama) y comprobar la chispa de los electrodos.\n- **Protocolo de Bloqueo y Rearme:** En caso de fallo, presionar el botón de reset por un **máximo de 3 segundos**. Si persiste la luz roja, diagnosticar mediante el parpadeo del LED. Si hay bloqueos recurrentes, limpiar el filtro de gasoil, purgar el aire y revisar presiones de la bomba.\n- **Seguridad de la Fotocélula:** Actúa cortando el combustible si no detecta llama. Debe limpiarse de hollín para evitar cortes innecesarios.\n- **Diagnóstico Visual de Seguridad:**\n  - *Llama amarilla/azul intensa:* Combustión normal.\n  - *Llama roja/rojiza:* Mala combustión, falta de aire o baja temperatura.\n  - *Llama blanca/azulada:* Exceso de aire.\n  - *Humo negro:* Combustión ineficiente, filtro sucio o exceso de combustible.\n  - *Humo blanco:* Gasoil en la cámara, mala combustión o microfuga.\n- **Descarga de Combustible:** Se debe detener la caldera durante la descarga de gasoil y esperar un tiempo prudencial antes de reencenderla para que los sedimentos (microfibras y parafinas) se posen y no obstruyan los filtros.\n\n### 7. Mantenimiento Preventivo (Frecuencias RITE)\n- **Mensual (m):** Limpieza y revisión del quemador, revisión del vaso de expansión (mantener a 0.3 bares si hay fluctuaciones), estanqueidad del cierre quemador-caldera, nivel de agua, comprobación del tarado de elementos de seguridad, y revisión de bombas y ventiladores.\n- **Una vez por temporada (t):** Revisión general de calderas de gasoil, estanqueidad de circuitos de tuberías, batería de intercambio térmico y estado del aislamiento térmico.\n- **Dos veces por temporada (2t):** Limpieza/revisión de circuitos de humos, conductos y chimenea, material refractario, estanqueidad de válvulas de interceptación, limpieza de filtros de agua y revisión del sistema de control automático.\n- **Gestión Energética:** En instalaciones grandes (ej. 405 kW), se exige un análisis de rendimiento cada 3 meses (temperaturas, presiones, CO/CO2, opacidad, tiro), asegurando que el rendimiento no baje del 80%.",
   "references": [
     {
-      "document_title": "Thermal Installation Manual (Site C - winery)",
-      "chapter_title": "Instrucciones de seguridad y uso",
+      "document_id": "dea8890eb274",
       "chapter_id": "ch_03",
-      "document_id": "ba400c134aa7"
-    },
-    {
-      "document_title": "Thermal Installation Manual (Site C - winery)",
-      "chapter_title": "Programas y procedimiento de mantenimiento preventivo",
-      "chapter_id": "ch_05",
-      "document_id": "ba400c134aa7"
-    },
-    {
-      "document_title": "Thermal Installation Manual (Site A)",
-      "chapter_title": "Instrucciones de seguridad y uso",
-      "chapter_id": "ch_03",
-      "document_id": "c0292256c2c6"
-    },
-    {
-      "document_title": "Thermal Installation Manual (Site A)",
-      "chapter_title": "Programas y procedimiento de mantenimiento preventivo",
-      "chapter_id": "ch_05",
-      "document_id": "c0292256c2c6"
-    },
-    {
-      "document_title": "Thermal Installation Manual (Site B)",
-      "chapter_title": "Instrucciones de seguridad y uso",
-      "chapter_id": "ch_03",
-      "document_id": "847f6201e519"
-    },
-    {
-      "document_title": "Thermal Installation Manual (Site B)",
-      "chapter_title": "Programas y procedimiento de mantenimiento preventivo",
-      "chapter_id": "ch_05",
-      "document_id": "847f6201e519"
-    },
-    {
-      "document_title": "Oil Burner Maintenance Protocol",
-      "chapter_title": "Bloqueo y Seguridad",
-      "chapter_id": "ch_02",
-      "document_id": "6e83f6ef3629"
-    },
-    {
-      "document_title": "Oil Burner Maintenance Protocol",
-      "chapter_title": "Notas Técnicas y Recomendaciones de Mantenimiento",
-      "chapter_id": "ch_06",
-      "document_id": "6e83f6ef3629"
-    }
-  ],
-  "chapters_read": [
-    {
-      "document_id": "ba400c134aa7",
-      "chapter_id": "ch_03",
-      "document_title": "Thermal Installation Manual (Site C - winery)",
+      "document_title": "Thermal Installation Manual (Site C)",
       "chapter_title": "Instrucciones de seguridad y uso"
     },
     {
-      "document_id": "ba400c134aa7",
+      "document_id": "dea8890eb274",
       "chapter_id": "ch_05",
-      "document_title": "Thermal Installation Manual (Site C - winery)",
+      "document_title": "Thermal Installation Manual (Site C)",
       "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
     },
     {
-      "document_id": "c0292256c2c6",
+      "document_id": "1f5a424bff18",
       "chapter_id": "ch_03",
       "document_title": "Thermal Installation Manual (Site A)",
       "chapter_title": "Instrucciones de seguridad y uso"
     },
     {
-      "document_id": "c0292256c2c6",
+      "document_id": "1f5a424bff18",
       "chapter_id": "ch_05",
       "document_title": "Thermal Installation Manual (Site A)",
       "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
     },
     {
-      "document_id": "847f6201e519",
+      "document_id": "4dde4ab3de3e",
       "chapter_id": "ch_03",
       "document_title": "Thermal Installation Manual (Site B)",
       "chapter_title": "Instrucciones de seguridad y uso"
     },
     {
-      "document_id": "847f6201e519",
+      "document_id": "4dde4ab3de3e",
       "chapter_id": "ch_05",
       "document_title": "Thermal Installation Manual (Site B)",
       "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
     },
     {
-      "document_id": "6e83f6ef3629",
+      "document_id": "1f77e6c80f39",
       "chapter_id": "ch_02",
       "document_title": "Oil Burner Maintenance Protocol",
       "chapter_title": "Bloqueo y Seguridad"
     },
     {
-      "document_id": "6e83f6ef3629",
+      "document_id": "1f77e6c80f39",
+      "chapter_id": "ch_06",
+      "document_title": "Oil Burner Maintenance Protocol",
+      "chapter_title": "Notas Técnicas y Recomendaciones de Mantenimiento"
+    }
+  ],
+  "chapters_read": [
+    {
+      "document_id": "dea8890eb274",
+      "chapter_id": "ch_03",
+      "document_title": "Thermal Installation Manual (Site C)",
+      "chapter_title": "Instrucciones de seguridad y uso"
+    },
+    {
+      "document_id": "dea8890eb274",
+      "chapter_id": "ch_05",
+      "document_title": "Thermal Installation Manual (Site C)",
+      "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
+    },
+    {
+      "document_id": "1f5a424bff18",
+      "chapter_id": "ch_03",
+      "document_title": "Thermal Installation Manual (Site A)",
+      "chapter_title": "Instrucciones de seguridad y uso"
+    },
+    {
+      "document_id": "1f5a424bff18",
+      "chapter_id": "ch_05",
+      "document_title": "Thermal Installation Manual (Site A)",
+      "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
+    },
+    {
+      "document_id": "4dde4ab3de3e",
+      "chapter_id": "ch_03",
+      "document_title": "Thermal Installation Manual (Site B)",
+      "chapter_title": "Instrucciones de seguridad y uso"
+    },
+    {
+      "document_id": "4dde4ab3de3e",
+      "chapter_id": "ch_05",
+      "document_title": "Thermal Installation Manual (Site B)",
+      "chapter_title": "Programas y procedimiento de mantenimiento preventivo"
+    },
+    {
+      "document_id": "1f77e6c80f39",
+      "chapter_id": "ch_02",
+      "document_title": "Oil Burner Maintenance Protocol",
+      "chapter_title": "Bloqueo y Seguridad"
+    },
+    {
+      "document_id": "1f77e6c80f39",
       "chapter_id": "ch_06",
       "document_title": "Oil Burner Maintenance Protocol",
       "chapter_title": "Notas Técnicas y Recomendaciones de Mantenimiento"
@@ -105,11 +105,11 @@
       "step": 1,
       "documents_selected": 5,
       "ids": [
-        "ba400c134aa7",
-        "c0292256c2c6",
-        "847f6201e519",
-        "6e83f6ef3629",
-        "0f7a0b78725c"
+        "dea8890eb274",
+        "1f5a424bff18",
+        "4dde4ab3de3e",
+        "1f77e6c80f39",
+        "bdd93c046fac"
       ]
     },
     {
@@ -148,5 +148,9 @@
     "output_tokens": 6793,
     "total_tokens": 44691
   },
-  "_note": "Real recorded run, sanitized. The original system populated the 'references' document_id field with a duplicated value (a known propagation bug); here it is reconciled against the authoritative ids in 'steps_log'/'chapters_read'. Titles normalized to match catalog.sample.json. Metrics and steps are unchanged."
+  "_note": "Real recorded run, sanitized. The original system populated the 'references' document_id field with a duplicated value (a known propagation bug); here it is reconciled against the authoritative ids in 'steps_log'/'chapters_read'. Titles normalized to match catalog.sample.json. Metrics and steps are unchanged.",
+  "_provenance": {
+    "produced_by": "query_library.py (real system)",
+    "run_month": "2026-03"
+  }
 }

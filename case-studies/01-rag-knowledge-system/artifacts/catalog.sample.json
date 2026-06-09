@@ -2,13 +2,13 @@
   "_note": "Real catalog.json from the system, sanitized. Document/site/brand names replaced with generic labels; structure, counts, dates, strategy and tags are unchanged.",
   "documents": [
     {
-      "document_id": "6c7ecd3916a5",
+      "document_id": "0e5db1763d1b",
       "title": "Cycling Science",
       "source_filename": "Cycling_Science_Human_Kinetics_2017.pdf",
       "document_type": "pdf_mixed",
       "language": "en",
       "total_chapters": 59,
-      "processed_date": "2026-03-10",
+      "processed_date": "2026-03",
       "tags_global": [
         "biomechanics",
         "aerodynamics",
@@ -28,13 +28,13 @@
       "page_count": 0
     },
     {
-      "document_id": "0f7a0b78725c",
+      "document_id": "bdd93c046fac",
       "title": "Industrial Inventory",
       "source_filename": "Industrial_Inventory.xlsx",
       "document_type": "excel",
       "language": "unknown",
       "total_chapters": 154,
-      "processed_date": "2026-03-11",
+      "processed_date": "2026-03",
       "tags_global": [
         "stainless steel",
         "plumbing supplies",
@@ -55,14 +55,14 @@
       "strategy": "hierarchical"
     },
     {
-      "document_id": "076486656a85",
+      "document_id": "1f5a424bff18",
       "title": "Thermal Installation Manual (Site A)",
       "source_filename": "thermal_installation_manual_site_A.pdf",
       "document_type": "pdf_mixed",
       "strategy": "full_context",
       "language": "es",
       "page_count": 14,
-      "processed_date": "2026-03-11",
+      "processed_date": "2026-03",
       "tags_global": [
         "manual de uso",
         "mantenimiento",
@@ -83,14 +83,14 @@
       "_sanitized": "site name and city removed; boiler brand generalized"
     },
     {
-      "document_id": "703527519d56",
+      "document_id": "4dde4ab3de3e",
       "title": "Thermal Installation Manual (Site B)",
       "source_filename": "thermal_installation_manual_site_B.pdf",
       "document_type": "pdf_mixed",
       "strategy": "full_context",
       "language": "es",
       "page_count": 14,
-      "processed_date": "2026-03-11",
+      "processed_date": "2026-03",
       "tags_global": [
         "manual",
         "mantenimiento",
@@ -110,14 +110,14 @@
       "_sanitized": "site name, city and boiler brand removed"
     },
     {
-      "document_id": "manual_thermal_installation_site_c",
-      "title": "Thermal Installation Manual (Site C - winery)",
+      "document_id": "dea8890eb274",
+      "title": "Thermal Installation Manual (Site C)",
       "source_filename": "thermal_installation_manual_site_C.pdf",
       "document_type": "pdf_mixed",
       "strategy": "full_context",
       "language": "es",
       "page_count": 13,
-      "processed_date": "2026-03-11",
+      "processed_date": "2026-03",
       "tags_global": [
         "manual",
         "mantenimiento",
@@ -137,14 +137,14 @@
       "_sanitized": "client/site name, city and boiler brand removed"
     },
     {
-      "document_id": "protocolo_quemador_de_gasoil_1",
+      "document_id": "1f77e6c80f39",
       "title": "Oil Burner Maintenance Protocol",
       "source_filename": "oil_burner_protocol.pdf",
       "document_type": "pdf_text",
       "strategy": "full_context",
       "language": "es",
       "page_count": 1,
-      "processed_date": "2026-03-11",
+      "processed_date": "2026-03",
       "tags_global": [
         "protocolo",
         "quemador de gasoil",
@@ -165,5 +165,10 @@
       "strategy_note": "single-page text PDF -> full_context"
     }
   ],
-  "total_documents": 6
+  "total_documents": 6,
+  "_provenance": {
+    "produced_by": "build_catalog.py (real system)",
+    "run_month": "2026-03",
+    "note": "document_id values regenerated as opaque tokens from sanitized labels and made consistent across all artifacts."
+  }
 }

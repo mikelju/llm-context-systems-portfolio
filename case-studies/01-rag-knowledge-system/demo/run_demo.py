@@ -14,9 +14,9 @@ real, sanitized artifacts shipped in ../artifacts:
      RECORDED real-system runs (query traces), so the numbers you see were
      actually produced by the system, not invented for the portfolio.
 
-Honesty note: in the real system, Steps 2-5 (chapter selection, reading,
-synthesis) are performed by an LLM. This demo does NOT call any model and is
-NOT the full RAG engine. It reproduces the deterministic control flow (Step 1,
+Honesty note: in the real system all 4 retrieval steps are LLM-driven (Step 1
+selection, Steps 2-4 = index inspection, chapter selection/reading, synthesis).
+This demo does NOT call any model and is NOT the full RAG engine. It reproduces the deterministic control flow (Step 1,
 as an offline approximation) and reports the recorded metrics of the LLM-driven
 steps. That separation is the point: the expensive part is bounded and measurable.
 
@@ -187,9 +187,9 @@ def main() -> None:
     show_trace(power, "Run 1 - 'physiological power zones' (single large book, hierarchical)")
     show_trace(safety, "Run 2 - 'safety measures' (cross-document over 4 manuals, hierarchical)")
 
-    _print("\n[dim]Steps 2-5 are LLM-driven in the real system; the metrics above are from "
-           "recorded runs. Step 1 is reproduced here deterministically and offline. "
-           "This is a trace-replay + pre-filter demo, not the full RAG engine.[/dim]")
+    _print("\n[dim]In the real system all 4 retrieval steps are LLM-driven; this demo approximates "
+           "Step 1 deterministically and replays the recorded metrics for the rest. "
+           "Trace-replay + pre-filter demo, not the full RAG engine.[/dim]")
 
 
 if __name__ == "__main__":
