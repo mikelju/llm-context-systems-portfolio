@@ -18,6 +18,17 @@ retrieval logic are untouched.
 - Equipment brands → generic (`an industrial gas/oil boiler`, `a major boiler brand`).
 - Document IDs (opaque hashes) are kept as-is — they identify nothing.
 
+## Two corrections I made (disclosed for honesty)
+
+1. **`query-trace.safety.json` — reconciled reference IDs.** The original system populated the
+   `references[].document_id` field with a **duplicated value** (a real propagation bug: all three
+   site manuals shared one id), while `steps_log` and `chapters_read` held the correct, distinct
+   ids. I reconciled `references` against those authoritative fields and normalized the titles to
+   match the catalog. **Metrics, funnel and answer are untouched.** (Worth noting because
+   traceability is exactly what this artifact is meant to demonstrate.)
+2. **`Cycling Science`** is a real, publicly published reference book. Only its **metadata and the
+   generated trace** are included here — the source PDF is **not** distributed.
+
 ## What is NOT changed
 
 Document/chapter **counts**, processing **dates**, `strategy` decisions, the retrieval **funnel**

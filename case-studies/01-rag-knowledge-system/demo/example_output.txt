@@ -59,5 +59,6 @@ Run 2 - 'safety measures' (cross-document over 4 manuals, hierarchical)
 synthesis prompt
   sources: answer cites 8 traceable (document -> chapter) references
 
-Steps 2-5 are LLM-driven in production; the metrics above are from recorded runs. Step 1 is 
-reproduced here deterministically and offline.
+Steps 2-5 are LLM-driven in the real system; the metrics above are from recorded runs. Step 1 is 
+reproduced here deterministically and offline. This is a trace-replay + pre-filter demo, not the 
+production RAG engine.

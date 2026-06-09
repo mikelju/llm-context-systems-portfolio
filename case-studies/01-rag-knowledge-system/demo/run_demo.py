@@ -11,14 +11,14 @@ real, sanitized artifacts shipped in ../artifacts:
      titles, tags and summaries (no API key, no network).
 
   2. Renders the retrieval funnel and the real cost/latency metrics from two
-     RECORDED production runs (query traces), so the numbers you see were
+     RECORDED real-system runs (query traces), so the numbers you see were
      actually produced by the system, not invented for the portfolio.
 
-Honesty note: in production, Steps 2-5 (chapter selection, reading, synthesis)
-are performed by an LLM. This demo does not call any model. It reproduces the
-deterministic control flow (Step 1) and reports the recorded metrics of the
-LLM-driven steps. That separation is the point: the expensive part is bounded
-and measurable.
+Honesty note: in the real system, Steps 2-5 (chapter selection, reading,
+synthesis) are performed by an LLM. This demo does NOT call any model and is
+NOT the production engine. It reproduces the deterministic control flow
+(Step 1) and reports the recorded metrics of the LLM-driven steps. That
+separation is the point: the expensive part is bounded and measurable.
 
 Run:
     python run_demo.py
@@ -184,8 +184,9 @@ def main() -> None:
     show_trace(power, "Run 1 - 'physiological power zones' (single large book, hierarchical)")
     show_trace(safety, "Run 2 - 'safety measures' (cross-document over 4 manuals, hierarchical)")
 
-    _print("\n[dim]Steps 2-5 are LLM-driven in production; the metrics above are from "
-           "recorded runs. Step 1 is reproduced here deterministically and offline.[/dim]")
+    _print("\n[dim]Steps 2-5 are LLM-driven in the real system; the metrics above are from "
+           "recorded runs. Step 1 is reproduced here deterministically and offline. "
+           "This is a trace-replay + pre-filter demo, not the production RAG engine.[/dim]")
 
 
 if __name__ == "__main__":

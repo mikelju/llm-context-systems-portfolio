@@ -102,5 +102,6 @@
     "input_tokens": 47677,
     "output_tokens": 5109,
     "total_tokens": 52786
-  }
+  },
+  "_note": "Real recorded run over a public reference book (Cycling Science). Only metadata and the generated trace are included; the source PDF is not distributed."
 }

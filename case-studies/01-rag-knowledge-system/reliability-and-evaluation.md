@@ -16,6 +16,8 @@
 
 ## How I evaluate (and what's real vs pending)
 
+> Full case matrix and the plan for a real eval suite: **[EVALUATION.md](EVALUATION.md)**.
+
 **What I run today — worked, recorded examples.** Each query trace is a concrete evaluation case:
 the funnel, the chapters read, the **token/latency cost**, and the **source references** are all
 captured. The two shipped traces cover two of the three question types below:

@@ -19,6 +19,14 @@ Internal codename: **"The Librarian"**.
 - Deliberately **no vector database**: retrieval is driven by catalog metadata + LLM selection.
   (Embeddings were built into the pipeline but disabled — see [context-strategy](context-strategy.md).)
 
+## Review this case study in 5 minutes
+
+1. This file (you're here) — the what and why, with real numbers.
+2. [`demo/example_output.txt`](demo/example_output.txt) — the demo's output without running anything.
+3. [`context-strategy.md`](context-strategy.md) — the core decision (dual strategy; metadata-first, and when I'd add vector search).
+4. [`the-bug-i-fixed.md`](the-bug-i-fixed.md) — a real failure, root cause and fix.
+5. [`artifacts/`](artifacts/) — the real, sanitized catalog and query traces behind the numbers.
+
 ## The real problem
 
 Not "chat with a PDF". The hard part is **assembling the right context** out of a large, mixed
@@ -44,10 +52,23 @@ the reliability mechanisms, and the iterative fixes.
 | [context-strategy.md](context-strategy.md) | The dual strategy + why there is no vector DB |
 | [retrieval-flow.md](retrieval-flow.md) | "The Librarian" 4-step flow, annotated with real trace numbers |
 | [reliability-and-evaluation.md](reliability-and-evaluation.md) | Reliability mechanisms + how I evaluate, with real runs |
+| [EVALUATION.md](EVALUATION.md) | Case matrix (incl. the not-yet-recorded "no answer" case) and what a real eval suite needs |
 | [the-bug-i-fixed.md](the-bug-i-fixed.md) | A real failure (corrupt scanned-PDF TOC) and the fix |
 | [lessons-learned.md](lessons-learned.md) | What I'd keep and what I'd change |
 | [artifacts/](artifacts/) | **Real, sanitized** catalog, query traces and ingestion log |
-| [demo/](demo/) | `python run_demo.py` — runs offline, prints the funnel + real metrics |
+| [demo/](demo/) | `python run_demo.py` — an **offline trace-replay + Step-1 pre-filter** demo (not the production engine) |
+
+## What is real / replayed / simulated
+
+Being precise about this is the point — it's what separates evidence from a pretty demo.
+
+| Element | Status | Notes |
+|---|---|---|
+| Catalog, query traces, ingestion log ([`artifacts/`](artifacts/)) | **Real** (sanitized) | Actual system outputs; only client/site/brand names changed |
+| Funnel + cost/latency/token metrics | **Real, replayed** | Read straight from the recorded traces; not recomputed |
+| Step 1 in the demo (catalog pre-filter) | **Simulated** | Deterministic keyword overlap standing in for the production LLM selection, so it runs offline |
+| Steps 2–5 (chapter selection, reading, synthesis) | **Not run in the demo** | LLM-driven in the real system; represented only by the recorded metrics |
+| `FULL_CONTEXT_MAX_PAGES = 80`, tool names, the bug & fix | **Real** | From the actual codebase |
 
 ## Stack
 

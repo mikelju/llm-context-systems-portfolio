@@ -33,10 +33,12 @@ catalog → document index → summaries/tags → selected chapters/pages → LL
 In the real catalog, a 59-chapter book and a 154-"chapter" spreadsheet are
 `"strategy": "hierarchical"`.
 
-## The decision I'm proudest of: metadata-first, **no vector database**
+## A deliberate choice: metadata-first retrieval (no vector DB *yet*)
 
-The pipeline *has* an embeddings phase (`generate_embeddings.py`) — and it is **disabled on
-purpose**. The real ingestion log says it plainly:
+For this corpus size (dozens of heterogeneous documents) I deliberately started with
+**metadata-first retrieval** instead of reaching for embeddings by default. The pipeline *has* an
+embeddings phase (`generate_embeddings.py`) — kept in place but **disabled for now**. The real
+ingestion log says it plainly:
 
 ```
 [Phase 5/6] Embeddings disabled (to be enabled when the model is available)
@@ -53,10 +55,24 @@ LLM doing the selection. Why this is a deliberate choice, not a shortcut:
 - **For ~dozens of heterogeneous documents**, an LLM choosing over a compact catalog is simpler,
   more transparent and good enough — a vector store is operational complexity you don't yet need.
 
-This resolves a question a sharp interviewer will ask — *"is this an embeddings system or not?"* —
-with a clear answer: **no, by design, at this scale.** Vector search (Supabase pgvector) is the
-documented next step *when the corpus grows to hundreds of documents* (see the multimodal-RAG and
-production-backend case studies).
+This is not "embeddings vs. no embeddings" dogma — it's choosing the lightest approach that fits
+the corpus, while keeping the embeddings phase in the pipeline and knowing exactly when to switch
+it on.
+
+## When I would add vector search
+
+Metadata-first is right *here*; it stops scaling. For a larger or higher-recall corpus I would add:
+
+- **Hybrid retrieval** — metadata/tag filters **+ BM25 + embeddings**, not embeddings alone.
+- **A managed vector store** — e.g. Supabase **pgvector** (already used in a sibling project), so
+  candidate selection isn't a single LLM pass over the whole catalog.
+- **A reranker** over the merged candidate set before reading.
+- **An evaluation set first** — measure retrieval precision/recall *before and after* vectorizing,
+  so the added complexity is justified by numbers, not by fashion.
+
+Rough trigger: once the catalog passes ~**a few hundred documents** (where one LLM pass over the
+catalog gets slow/expensive and tag overlap loses precision), hybrid + vector becomes worth its
+operational weight. The multimodal-RAG and production-backend case studies cover that step.
 
 ## The key tradeoff
 
