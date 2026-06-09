@@ -42,6 +42,14 @@ human-in-the-loop.
 > evidence-backed format (architecture → context strategy → retrieval flow → reliability/eval →
 > a real bug → sanitized artifacts → runnable demo).
 
+## Authoring standard
+
+Every case study follows a single contract so quality and anonymization are consistent:
+[`case-studies/CASE_STUDY_SPEC.md`](case-studies/CASE_STUDY_SPEC.md). It ships with a copy-from
+scaffold ([`case-studies/_TEMPLATE/`](case-studies/_TEMPLATE/)) and an automated acceptance gate
+([`case-studies/_scripts/verify_case_study.py`](case-studies/_scripts/verify_case_study.py)) that
+checks artifact/metric integrity, traceability, the offline demo, and leak/secret sweeps.
+
 ## Confidentiality
 
 Client names, datasets, credentials, production URLs and personally identifiable information have

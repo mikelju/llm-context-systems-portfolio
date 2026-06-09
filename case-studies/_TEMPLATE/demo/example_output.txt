@@ -1,0 +1,6 @@
+(placeholder) Re-capture this file from the finished demo before publishing:
+
+    python run_demo.py > example_output.txt
+
+It must be the real output of run_demo.py against the sanitized artifacts, and it must contain the
+honesty caveat. verify_case_study.py checks both.

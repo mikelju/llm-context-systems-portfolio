@@ -1,0 +1,10 @@
+{
+  "_README": "Token vocabulary ONLY. Do NOT put real client terms here if the repo is or will be public. The real->token MAP lives OUTSIDE the repo and feeds sanitize.py + verify --real-terms. See spec §6.",
+  "tokens": [
+    { "token": "an industrial supplier (client)", "for": "client company name", "applies_to": "prose, summaries" },
+    { "token": "Site A | Site B | Site C", "for": "client installation/site names", "applies_to": "titles, traces" },
+    { "token": "[location]", "for": "city/region", "applies_to": "everywhere" },
+    { "token": "the authorized representative", "for": "a named person", "applies_to": "everywhere" },
+    { "token": "<opaque 12-hex>", "for": "document_id / content-hash id (regenerate, don't keep real)", "applies_to": "all artifacts, consistently" }
+  ]
+}
