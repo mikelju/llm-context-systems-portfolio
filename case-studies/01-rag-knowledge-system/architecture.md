@@ -1,51 +1,60 @@
 # Architecture
 
-## Architectural pattern
+## Pattern: WAT (Workflows · Agents · Tools)
 
-The system follows a WAT architecture:
+- **Workflows** define the high-level process (ingest a document; answer a query).
+- **Agents / LLM calls** do the parts that need judgment: filtering, selection, synthesis.
+- **Tools** are deterministic Python: parsing, rendering, extraction, catalog building, state.
 
-- **Workflows** define the high-level process.
-- **Agents / LLM calls** coordinate reasoning, filtering and synthesis.
-- **Tools** execute deterministic operations: parsing, rendering, extraction, embedding generation, state management and catalog building.
+The guiding rule: *the LLM is used where it adds judgment; everything repeatable, structured or
+verifiable is a deterministic tool.* That keeps the system debuggable and cheap.
 
-## Main components
+## Ingestion pipeline (real tools)
 
-### Document processing pipeline
+Each document is processed **once**, offline, into reusable artifacts. The actual tools:
 
-1. Detect document type.
-2. Extract document structure.
-3. Extract chapter-level content.
-4. Extract and describe visual elements.
-5. Generate summaries.
-6. Generate tags.
-7. Generate embeddings.
-8. Build a searchable catalog.
-9. Store processing state for resumable execution.
+| Phase | Tool | Output |
+|------:|------|--------|
+| 1 | `detect_document_type.py` | type: `pdf_text` / `pdf_mixed` / `pdf_scanned` / `excel` / `docx` / `pptx` / `image` |
+| 2 | `extract_structure.py` | document structure / chapter index (native TOC → heuristics → Gemini Vision fallback) |
+| 3 | `extract_content.py`, `extract_visuals.py` | chapter text + descriptions of figures/tables/diagrams |
+| 4 | `generate_analysis.py` (`generate_summary.py` + `generate_tags.py`) | per-chapter & global summaries + tags |
+| 5 | `generate_embeddings.py` | embeddings — *currently disabled by design (see context-strategy)* |
+| 6 | `build_catalog.py` | the searchable `catalog.json` entry |
+| — | `process_batch.py` | orchestrator; `state_manager.py` | thread-safe, resumable state |
 
-### Knowledge base
+Phases 3–4 run on a `ThreadPoolExecutor` (default **3 workers**). Ingestion is **resumable**:
+state is persisted per chapter, so a crash resumes mid-document instead of restarting.
 
-Each processed document generates structured artifacts:
+> Real ingestion log (sanitized): [`artifacts/processing-log.sample.txt`](artifacts/processing-log.sample.txt)
+> — a 15.4M-character spreadsheet processed as 154 parts / 52 analysis passes.
 
-- global metadata;
-- chapter index;
-- chapter summaries;
-- tags;
-- visual descriptions;
-- embeddings;
-- rendered pages when needed;
-- catalog entry.
+## The knowledge base
 
-### Query system
+Each processed document produces structured artifacts stored under `knowledge_base/<id>/`:
 
-The query system uses a staged retrieval process:
+- global metadata, summary and tags;
+- chapter index + per-chapter summaries;
+- visual descriptions (so figures/tables are searchable as text);
+- rendered page images (when needed for visual reading);
+- the catalog entry.
 
-1. Select potentially relevant documents from the catalog.
-2. Inspect indexes and summaries.
-3. Select chapters or pages.
-4. Read only the most relevant content.
-5. Use the LLM for final synthesis.
-6. Optionally expand the answer into a report with figures.
+> Real catalog (sanitized): [`artifacts/catalog.sample.json`](artifacts/catalog.sample.json).
+
+## Query system ("The Librarian")
+
+A staged retrieval process that progressively narrows context before any expensive reading:
+
+```
+catalog → candidate documents → indexes/summaries → selected chapters/pages → LLM synthesis
+```
+
+Full step-by-step with real trace numbers: [retrieval-flow.md](retrieval-flow.md).
 
 ## Design principle
 
-The LLM should not receive everything. It should receive the smallest useful context that preserves enough evidence to answer reliably.
+> The model should not receive everything. It should receive the **smallest useful context** that
+> still contains enough evidence to answer — and a pointer back to the source for traceability.
+
+See the diagrams: [assets/architecture-diagram.md](assets/architecture-diagram.md) ·
+[assets/retrieval-sequence.md](assets/retrieval-sequence.md).

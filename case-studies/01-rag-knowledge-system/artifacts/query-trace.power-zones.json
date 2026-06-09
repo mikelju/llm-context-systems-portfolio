@@ -1,0 +1,106 @@
+{
+  "answer": "Physiological power zones are specific ranges of exercise intensity used to structure and optimize cycling training. They are established using physiological markers such as VO2max, Lactate Threshold (LT), and Functional Threshold Power (FTP). \n\n### Key Physiological Markers and Power Metrics\n1. **VO2max (Maximal Oxygen Consumption):** This is the gold standard for measuring aerobic capacity and sets the upper limit for aerobic energy production. It is measured in L/min or normalized to body mass (ml·kg−1·min−1). A professional cycling career generally requires a minimum VO2max in the mid- to high 60s (ml·kg−1·min−1).\n2. **Lactate Threshold (LT) and Functional Threshold Power (FTP):** LT determines the percentage of VO2max that can be utilized for a given period, reflecting the muscles' ability to match energy supply to demand. FTP is the practical application of this, defined as the highest average power a cyclist can sustain in a quasi-steady state for 60 minutes. FTP typically ranges between 70% and 90% of a cyclist's VO2max. World-class male cyclists exhibit FTP values around 6.4 W/kg, while world-class females show about 5.69 W/kg. FTP is often estimated by taking 95% of the average power output from a maximal 20-minute time trial.\n3. **Other Power Metrics:** \n   - **Critical Power (CP) and W':** CP is the maximum rate of work sustainable without fatigue for a long duration, while W' is the finite anaerobic work capacity above CP.\n   - **Efficiency:** The human body is 20% to 25% efficient at converting metabolic energy to mechanical energy. For nutrition, a 1:1 ratio is assumed between kilojoules (kJ) of mechanical work and kilocalories (kcal) burned.\n\n### Physiological Power Zones\nTraining zones are typically modeled around FTP and heart rate thresholds. The widely used **Coggan Power Zones** categorize intensity into seven levels:\n- **Level 1 (Active Recovery):** ≤55% FTP; ≤68% Threshold HR; Perceived Exertion (RPE) <2.\n- **Level 2 (Endurance):** 56-75% FTP; 69-83% Threshold HR; RPE 2-3.\n- **Level 3 (Tempo):** 76-90% FTP; 84-94% Threshold HR; RPE 3-4.\n- **Level 4 (Lactate Threshold):** 91-105% FTP; 95-105% Threshold HR; RPE 4-5.\n- **Level 5 (VO2max):** 106-120% FTP; ≥106% Threshold HR; RPE 6-7; sustainable for 3-8 minutes.\n- **Level 6 (Anaerobic Capacity):** 121-150% FTP; RPE >7; sustainable for 30 seconds to 2 minutes.\n- **Level 7 (Neuromuscular Power):** Maximal effort; sustainable for 5-15 seconds.\n\nAlternatively, the **Record Power Profile (RPP)** defines five zones based on duration: Zone 1 (Moderate, 2-4 hours), Zone 2 (Heavy, 20-60 mins), Zone 3 (Lower severe, 5-10 mins), Zone 4 (Upper severe, 30-60s), and Zone 5 (Sprint, 1-5s).\n\n### Structuring Cycling Training\nPower zones are utilized to structure training programs through specific intensity distributions, periodization, and targeted workouts:\n\n**1. Intensity Distribution (Polarized Training):**\nResearch recommends a polarized model where 75% to 80% of training volume is Low-Intensity Training (LIT) below the aerobic threshold (AeT). About 10% to 15% should be High-Intensity Interval Training (HIIT) above the anaerobic threshold (AnT), with the remainder near threshold. Moderate-intensity training is limited to avoid excessive fatigue.\n\n**2. Periodization Models:**\n- **Classic/Traditional:** Progresses from high-volume/low-intensity aerobic base training to high-intensity/low-volume specific conditioning.\n- **Block Periodization:** Focuses on concentrated stimuli for 1 to 3 weeks. For example, a 1-week block of five HIIT sessions (repeated every 4th week) has been shown to yield superior adaptations in VO2max and power output at 2mmol/L blood lactate compared to traditional scheduling.\n- **Reverse Periodization:** Starts with high intensity and low volume, progressing to higher volume (best for experienced riders).\n\n**3. Workout Structuring and Recovery:**\nWorkouts are designed to target specific zones based on discipline (e.g., criterium racers focus on Level 6/7 sprints, while time trialists focus on Level 4 threshold). Examples include:\n- *Threshold (Level 4):* 2 x 20 minutes at 100% FTP.\n- *Race-Winning (Level 5):* 30-second sprints at 200% FTP followed by 3 minutes at 100% FTP.\n- *Neuromuscular (Level 7):* \"Microbursts\" of 15 seconds at 150% FTP and 15 seconds at 50% FTP for 10 minutes.\n\nRecovery is scaled by intensity: low-intensity (<AeT) requires <24 hours, threshold intensity requires 24-48 hours, and high-intensity (>AnT) requires >48 hours of recovery.",
+  "references": [
+    {
+      "document_title": "Chapter 2: Cycling Physiology and Genetics",
+      "chapter_title": "Cycling Physiology and Genetics",
+      "chapter_id": "ch_08",
+      "document_id": "6c7ecd3916a5"
+    },
+    {
+      "document_title": "Chapter 26: Assessing Cycling Fitness",
+      "chapter_title": "Assessing Cycling Fitness",
+      "chapter_id": "ch_38",
+      "document_id": "6c7ecd3916a5"
+    },
+    {
+      "document_title": "Chapter 27: Designing Training Programs",
+      "chapter_title": "Designing Training Programs",
+      "chapter_id": "ch_39",
+      "document_id": "6c7ecd3916a5"
+    },
+    {
+      "document_title": "Chapter 28: Training Periodization",
+      "chapter_title": "Training Periodization",
+      "chapter_id": ""
+    },
+    {
+      "document_title": "Chapter 29: Using a Power Meter",
+      "chapter_title": "Using a Power Meter",
+      "chapter_id": ""
+    }
+  ],
+  "chapters_read": [
+    {
+      "document_id": "6c7ecd3916a5",
+      "chapter_id": "ch_08",
+      "document_title": "Cycling Science",
+      "chapter_title": "Chapter 2: Cycling Physiology and Genetics"
+    },
+    {
+      "document_id": "6c7ecd3916a5",
+      "chapter_id": "ch_38",
+      "document_title": "Cycling Science",
+      "chapter_title": "Chapter 26: Assessing Cycling Fitness"
+    },
+    {
+      "document_id": "6c7ecd3916a5",
+      "chapter_id": "ch_39",
+      "document_title": "Cycling Science",
+      "chapter_title": "Chapter 27: Designing Training Programs"
+    },
+    {
+      "document_id": "6c7ecd3916a5",
+      "chapter_id": "ch_40",
+      "document_title": "Cycling Science",
+      "chapter_title": "Chapter 28: Training Periodization"
+    },
+    {
+      "document_id": "6c7ecd3916a5",
+      "chapter_id": "ch_41",
+      "document_title": "Cycling Science",
+      "chapter_title": "Chapter 29: Using a Power Meter"
+    }
+  ],
+  "steps_log": [
+    {
+      "step": 1,
+      "documents_selected": 1,
+      "ids": [
+        "6c7ecd3916a5"
+      ]
+    },
+    {
+      "step": 2,
+      "documents_confirmed": 1,
+      "total_candidate_chapters": 6
+    },
+    {
+      "step": 3,
+      "iteration": 0,
+      "chapters_selected": 5,
+      "chapters": [
+        "6c7ecd3916a5/ch_08",
+        "6c7ecd3916a5/ch_38",
+        "6c7ecd3916a5/ch_39",
+        "6c7ecd3916a5/ch_40",
+        "6c7ecd3916a5/ch_41"
+      ]
+    },
+    {
+      "step": 4,
+      "iteration": 0,
+      "needs_more_info": false,
+      "hint": ""
+    }
+  ],
+  "total_chapters_read": 5,
+  "iterations": 1,
+  "metrics": {
+    "elapsed_seconds": 73.7,
+    "api_calls": 6,
+    "input_tokens": 47677,
+    "output_tokens": 5109,
+    "total_tokens": 52786
+  }
+}

@@ -1,0 +1,52 @@
+============================================================
+PROCESSING: Industrial_Inventory.xlsx
+(representative ingestion log — real numbers, client name removed)
+============================================================
+
+[Phase 1/6] Detecting document type...
+  ID: 76e9099913e5
+  Type: excel
+
+[Phase 2/6] Extracting structure...
+  Structure extracted: 1 chapter detected
+  Type: excel | Language: unknown | Title: Industrial Inventory
+
+[Phase 3/6] Extracting content and visual elements (3 workers)...
+  1 chapter pending extraction...
+  Extracting content: Active_Items_ClientA
+  Chapter ch_01 split into 154 parts (15,381,908 characters)
+
+[Phase 4/6] Generating summaries and tags (3 workers)...
+  1 chapter to analyze in parallel...
+    Chapter ch_01: long text (15,382,214 chars), analyzing by parts...
+      Part 1... Part 2... Part 3... [...] Part 52...
+    ch_01: summary (5 bullet points) + 15 tags
+
+[Phase 5/6] Embeddings disabled (to be enabled when the model is available)
+
+[Phase 6/6] Assembling catalog...
+  Original file moved to:  knowledge_base/76e9099913e5/original/Industrial_Inventory.xlsx
+  Temporary files deleted: .tmp/76e9099913e5
+
+  Document fully processed:
+    Title:    Industrial Inventory
+    Chapters: 1
+    Global tags: plumbing, hvac, industrial maintenance, inventory management, stainless steel...
+    Summary: a comprehensive technical inventory and operational database for an industrial
+             plumbing-HVAC supplier (client)...
+
+============================================================
+COMPLETED: Industrial_Inventory.xlsx
+  Document ID: 76e9099913e5
+============================================================
+
+----------------------------------------------------------------
+NOTES (why this log matters)
+----------------------------------------------------------------
+- A single 15.4M-character spreadsheet is split into 154 parts and summarized in 52
+  LLM passes. The ingestion cost is paid ONCE, offline; queries stay cheap.
+- "Embeddings disabled" is a deliberate decision: retrieval is driven by the catalog
+  (titles, summaries, tags, structure) + LLM selection, NOT vector similarity.
+  See ../context-strategy.md for the rationale.
+- Phases 3 and 4 run with a 3-worker thread pool; ingestion is resumable
+  (state_manager.py persists per-chapter state, so a crash resumes mid-document).

@@ -1,0 +1,63 @@
+The Librarian - offline retrieval-flow demo
+Real, sanitized artifacts. No API key required.
+───────────────────────────── A. Knowledge base (catalog.sample.json) ──────────────────────────────
+┌────────────────────────────────────────┬───────────┬──────────────┬──────────┬───────┬─────────┐
+│ Title                                  │ Type      │ Strategy     │ Chapters │ Pages │ Lang    │
+├────────────────────────────────────────┼───────────┼──────────────┼──────────┼───────┼─────────┤
+│ Cycling Science                        │ pdf_mixed │ hierarchical │ 59       │ 0     │ en      │
+│ Industrial Inventory                   │ excel     │ hierarchical │ 154      │ -     │ unknown │
+│ Thermal Installation Manual (Site A)   │ pdf_mixed │ full_context │ -        │ 14    │ es      │
+│ Thermal Installation Manual (Site B)   │ pdf_mixed │ full_context │ -        │ 14    │ es      │
+│ Thermal Installation Manual (Site C -  │ pdf_mixed │ full_context │ -        │ 13    │ es      │
+│ Oil Burner Maintenance Protocol        │ pdf_text  │ full_context │ -        │ 1     │ es      │
+└────────────────────────────────────────┴───────────┴──────────────┴──────────┴───────┴─────────┘
+
+6 documents | 2 hierarchical, 4 full_context (threshold: FULL_CONTEXT_MAX_PAGES = 80)
+─────────────────── B. Step 1 reproduced live (deterministic catalog pre-filter) ───────────────────
+
+Query: "seguridad mantenimiento caldera gasoil instalación térmica"
+┌──────┬───────┬─────────────────────────────────────────┬─────────────────────────────────────────┐
+│ Rank │ Score │ Document                                │ Matched terms                           │
+├──────┼───────┼─────────────────────────────────────────┼─────────────────────────────────────────┤
+│ 1    │ 6     │ Thermal Installation Manual (Site  <-   │ caldera, gasoil, instalación,           │
+│      │       │ selected                                │ mantenimiento, s                        │
+│ 2    │ 5     │ Thermal Installation Manual (Site  <-   │ caldera, instalación, mantenimiento,    │
+│      │       │ selected                                │ seguridad                               │
+│ 3    │ 5     │ Thermal Installation Manual (Site  <-   │ caldera, instalación, mantenimiento,    │
+│      │       │ selected                                │ seguridad                               │
+│ 4    │ 3     │ Oil Burner Maintenance Protocol         │ gasoil, mantenimiento, seguridad        │
+│ 5    │ 0     │ Cycling Science                         │                                         │
+│ 6    │ 0     │ Industrial Inventory                    │                                         │
+└──────┴───────┴─────────────────────────────────────────┴─────────────────────────────────────────┘
+Step 1 passes 3 candidate document(s) to the LLM stages.
+
+Query: "cycling power zones ftp vo2max training"
+┌──────┬───────┬────────────────────────────────────┬───────────────────────────┐
+│ Rank │ Score │ Document                           │ Matched terms             │
+├──────┼───────┼────────────────────────────────────┼───────────────────────────┤
+│ 1    │ 3     │ Cycling Science <- selected        │ cycling, training, vo2max │
+│ 2    │ 0     │ Industrial Inventory               │                           │
+│ 3    │ 0     │ Thermal Installation Manual (Site  │                           │
+│ 4    │ 0     │ Thermal Installation Manual (Site  │                           │
+│ 5    │ 0     │ Thermal Installation Manual (Site  │                           │
+│ 6    │ 0     │ Oil Burner Maintenance Protocol    │                           │
+└──────┴───────┴────────────────────────────────────┴───────────────────────────┘
+Step 1 passes 1 candidate document(s) to the LLM stages.
+────────────────────── C. Real recorded runs (metrics produced by the system) ──────────────────────
+
+Run 1 - 'physiological power zones' (single large book, hierarchical)
+  funnel : catalog -> 1 docs selected -> 1 confirmed -> 6 candidate chapters -> 5 chapters read
+  cost   : 73.7s | 6 API calls | 47,677 in + 5,109 out = 52,786 tokens
+  context: only 5/6 candidate chapters were actually read (83% kept) - the rest never reached the 
+synthesis prompt
+  sources: answer cites 5 traceable (document -> chapter) references
+
+Run 2 - 'safety measures' (cross-document over 4 manuals, hierarchical)
+  funnel : catalog -> 5 docs selected -> 4 confirmed -> 9 candidate chapters -> 8 chapters read
+  cost   : 88.5s | 7 API calls | 37,898 in + 6,793 out = 44,691 tokens
+  context: only 8/9 candidate chapters were actually read (89% kept) - the rest never reached the 
+synthesis prompt
+  sources: answer cites 8 traceable (document -> chapter) references
+
+Steps 2-5 are LLM-driven in production; the metrics above are from recorded runs. Step 1 is 
+reproduced here deterministically and offline.
