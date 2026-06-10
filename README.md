@@ -35,7 +35,7 @@ human-in-the-loop.
 | 3 | **[Agentic Document Q&A Bot — n8n + Gemini File API + memory](case-studies/03-agentic-document-qa-bot/)** | ✅ Documented · real artifacts · runnable offline demo |
 | 4 | Document Intelligence — Manufacturer-Report Extraction (vision → structured JSON, HITL) | 🔜 |
 | 5 | MCP Server / Agent Tooling (Executor Agent) | 🔜 |
-| 6 | Applied-AI Product 0→1 — Voice-to-Order (vector/semantic search, cloud) | 🔜 |
+| 6 | **[Applied-AI Product 0→1 — Voice-to-Order (vector/semantic search, cloud)](case-studies/06-voice-to-order/)** | ✅ Documented · real artifacts · runnable offline demo |
 | 7 | Agentic Workflow — Company Prospecting (workflows + agent + deterministic tools) | 🔜 |
 
 > Case study **01 is the reference standard**. The remaining six will follow the same

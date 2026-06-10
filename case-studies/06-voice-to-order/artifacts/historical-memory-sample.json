@@ -1,0 +1,114 @@
+{
+  "_provenance": {
+    "produced_by": "the 'historico' Supabase table written by historical_data_service.upsert (each confirmed order line feeds it) - read by buscar_historicos (HNSW)",
+    "run_month": "2026-03",
+    "sanitization_note": "rows are real; order_number/user_id dropped; article ids regenerated; last_used coarsened to month"
+  },
+  "what_it_is": "the system's learned memory: each row maps a technician's dictated phrase to the catalog article they finally confirmed, with use frequency - searched FIRST (threshold 0.75) before the catalog (threshold 0.5)",
+  "sample": [
+    {
+      "user_text": "100x500 de hierro upn",
+      "catalog_description": "ML UPN 100 HIERRO (10,87KG/M)",
+      "id_articulo": "ART-8a1fda46",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "taco fischer de 10",
+      "catalog_description": "TACO 10 PLASTICO 4 SEGMENTOS",
+      "id_articulo": "ART-deafc956",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "tirafondo de 8",
+      "catalog_description": "TORNILLO GOLOSO 8*50 CABEZA HEXAGONAL DIN571",
+      "id_articulo": "ART-f32a36cb",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "tuerca metrica 8",
+      "catalog_description": "TUERCA M8 ZINCADO DIN 934",
+      "id_articulo": "ART-56724a41",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "te galva 1",
+      "catalog_description": "TE 11/2 GALVA",
+      "id_articulo": "ART-1eeb1a3a",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "te inox 316 de 60",
+      "catalog_description": "TE 60,3 (2) INOX316L ISO",
+      "id_articulo": "ART-de6e9127",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "perfil 5050x2 hierro",
+      "catalog_description": "ML CUADRADILLO 50*50*2 HIERRO (3,13kg/m)",
+      "id_articulo": "ART-53319edc",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "te dn50 inox",
+      "catalog_description": "TE DN50 Ø53 INOX PULIDO 316L ALIMENTACION DIN",
+      "id_articulo": "ART-721d635a",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "metro de carril strut 41x21",
+      "catalog_description": "UD CARRIL PERFORADO 41/21*2000 GALVANIZADO  E2",
+      "id_articulo": "ART-83a7c6c0",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "metro de carril strut 41x41",
+      "catalog_description": "UD CARRIL PERFORADO 41/41*2000 GALVANIZADO  E2",
+      "id_articulo": "ART-bc379ff6",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "taco expansivo metrica 10 laton",
+      "catalog_description": "ANCLAJE HEMBRA M10*40 C/ REBORDE",
+      "id_articulo": "ART-77f50d7b",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "tuerca metrica 10",
+      "catalog_description": "TUERCA M10 ZINCADO DIN 934",
+      "id_articulo": "ART-59e17a3d",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "varilla roscada metrica 10",
+      "catalog_description": "VARILLA ROSCADA M10 ZINCADO DIN 975",
+      "id_articulo": "ART-f5fc2737",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    },
+    {
+      "user_text": "arandela metrica 10",
+      "catalog_description": "ARANDELA M10 ZINCADO DIN125",
+      "id_articulo": "ART-866d36c7",
+      "frequency": 1,
+      "last_used_month": "2025-03"
+    }
+  ],
+  "metrics": {
+    "historical_mappings": 1001,
+    "sample_rows": 14,
+    "historical_threshold": 0.75,
+    "catalog_threshold": 0.5
+  }
+}

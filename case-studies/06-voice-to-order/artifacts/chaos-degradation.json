@@ -1,0 +1,29 @@
+{
+  "_provenance": {
+    "produced_by": "the SIMULATE_FAILURE chaos-testing switch (plan 12.19), implemented in config.py + 3 services",
+    "run_month": "2026-03"
+  },
+  "switch": "SIMULATE_FAILURE env var - comma-separated list of failures to inject",
+  "modes": [
+    {
+      "mode": "erp",
+      "injection": "erp_integration_service.py:97 - send_order_to_erp returns (False, simulated connection error)",
+      "degraded_behaviour": "order still delivered by PDF/email + saved to history; ERP status light red"
+    },
+    {
+      "mode": "email",
+      "injection": "order_delivery_service.py:126 - send skipped, email_sent_successfully=False",
+      "degraded_behaviour": "order still sent to ERP + saved to history; email status light red"
+    },
+    {
+      "mode": "history",
+      "injection": "historical_data_service.py:21 - upsert raises simulated error",
+      "degraded_behaviour": "order delivered (ERP + email); memory not updated; history status light red"
+    }
+  ],
+  "design_rule": "each delivery channel fails independently and reports its own status to the frontend (per-channel status lights); no channel failure aborts the others",
+  "metrics": {
+    "failure_modes": 3,
+    "delivery_channels": 3
+  }
+}

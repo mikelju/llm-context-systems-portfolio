@@ -1,0 +1,50 @@
+{
+  "_provenance": {
+    "produced_by": "the nightly ERP-X catalog sync (GitHub Actions) - this is the synced master CSV the embeddings are built from",
+    "run_month": "2026-03",
+    "sanitization_note": "article ids regenerated (ART-8hex from the real id, consistent across artifacts); supplier column dropped; descriptions are generic plumbing/HVAC items and are kept verbatim"
+  },
+  "schema": [
+    "IdArticulo",
+    "Articulo",
+    "FechaUltimaCompra",
+    "UltimoProveedor (dropped here)"
+  ],
+  "messy_data_examples": [
+    "T"
+  ],
+  "sample_rows": [
+    {
+      "id_articulo": "ART-0b428702",
+      "articulo": "CODO 84 90º POLIURETANO D/35 40MM max.60ºC SIN ALUMINIO",
+      "has_fecha_ultima_compra": true
+    },
+    {
+      "id_articulo": "ART-7971b4c0",
+      "articulo": "TACO PARAGUAS C/TUERCA M4*90",
+      "has_fecha_ultima_compra": true
+    },
+    {
+      "id_articulo": "ART-11dd6b16",
+      "articulo": "BARRA GIRO ABATIBLE C/PATA A SUELO MATE",
+      "has_fecha_ultima_compra": true
+    },
+    {
+      "id_articulo": "ART-6fcc6d05",
+      "articulo": "CALENTADOR VAILLANT 14L NAT ESTANCO TURBOMAG",
+      "has_fecha_ultima_compra": true
+    },
+    {
+      "id_articulo": "ART-ef111163",
+      "articulo": "TRAMO CHIMENEA 0,25MT 80 MH ALUMINIO BLANCO",
+      "has_fecha_ultima_compra": false
+    }
+  ],
+  "metrics": {
+    "catalog_rows": 31070,
+    "rows_with_last_purchase_date": 23610,
+    "historical_mappings": 1001,
+    "transcriptions_archived": 283,
+    "audio_files_archived": 216
+  }
+}

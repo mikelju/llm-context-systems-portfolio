@@ -1,0 +1,144 @@
+{
+  "_provenance": {
+    "produced_by": "fine_tuning.jsonl - 46 hand-validated (transcription -> expected order) pairs built from real dictated orders; assembled for a fine-tuning experiment that was ultimately discarded in favour of prompt engineering",
+    "run_month": "2025-Q2",
+    "sanitization_note": "end-customer names -> [customer]; order references -> [order-ref]; article descriptions are generic plumbing items, kept verbatim"
+  },
+  "examples": [
+    {
+      "transcription": "Pedido [customer] [order-ref], 24 tornillos allen métrica 10x25 inox, 24 tuercas métrica 10 inox, 24 arandelas métrica 10 inox.",
+      "expected_items": [
+        {
+          "qty": "24.0",
+          "description": "TORNILLO ALLEN M10*25 INOX"
+        },
+        {
+          "qty": "24.0",
+          "description": "TUERCA M10 INOX DIN 934"
+        },
+        {
+          "qty": "24.0",
+          "description": "ARANDELA M10 INOX DIN125"
+        }
+      ]
+    },
+    {
+      "transcription": "PEDIDO [customer] [order-ref] 8 CINEMBLOCKS METRICA 12 INOX 8 TUERCAS METRICA 12 INOX 8 ARANDELAS METRICA 12 INOX 2 BOTELLAS DE PROTEC 1 BOTELLA DE ARGON",
+      "expected_items": [
+        {
+          "qty": "8.0",
+          "description": "PIE MAQUINA GOMA-INOX M-75 12*100 -1B63159004631- SINEMBLOCK"
+        },
+        {
+          "qty": "8.0",
+          "description": "TUERCA M12 INOX DIN 934"
+        },
+        {
+          "qty": "8.0",
+          "description": "ARANDELA M12 INOX DIN125"
+        },
+        {
+          "qty": "2.0",
+          "description": "BOTELLA FORMINGAS X50 GRANDE -PARA INERTIZAR- N.E.P.(Nitrogeno/Hidrogeno)"
+        },
+        {
+          "qty": "1.0",
+          "description": "BOTELLA ARGON INTEGRA X30"
+        }
+      ]
+    },
+    {
+      "transcription": "Pedido, obra [order-ref], [site]. 6 metros de cuadradillo, inox 4040. Una tuerca unión hembra inox 1 pulgada. Un codo mixto inox macho 1 pulgada 28. Cuatro enlaces mistos inox press macho 1 pulgada 28. Tres tex inox press diámetro 28. Cuatro codos 45 grados inox press macho hembra diámetro 28. Dos codos 45 grados inox press diámetro 28. Cinco codos inox press 90 grados hembra diámetro 28. Tres codos inox press 90 grados macho hembra diámetro 28. Dos manguitos inox press de 28. Un enlace tuerca loca hembra 1 pulgada 28. Dos roscas dobles inox 1 pulgada. Una válvula inox hembra 1 pulgada. Seis abrazaderas isofónicas diámetro 28 paramétrica 810. Una T roscada inox de media. Dos tuercas uniones inox macho hembra media. Una válvula hembra de media. Cuatro enlaces mixtos inox press macho media 22. Dos manguitos inox press hembra 22. Dos roscas dobles inox de media. Dos manguitos inox de media. Dos válvulas macho hembra de media.",
+      "expected_items": [
+        {
+          "qty": "6.0",
+          "description": "ML CUADRADILLO 40*40*2 INOX304 TUBO CUADRADO"
+        },
+        {
+          "qty": "1.0",
+          "description": "TUERCA UNION 1 INOX ROSCAR H"
+        },
+        {
+          "qty": "1.0",
+          "description": "CODO MIXTO 28-1 INOX PRENSAR 90 M"
+        },
+        {
+          "qty": "4.0",
+          "description": "MANGUITO MIXTO 28-1 INOX PRENSAR M"
+        },
+        {
+          "qty": "3.0",
+          "description": "TE 28 INOX PRENSAR"
+        },
+        {
+          "qty": "4.0",
+          "description": "CODO 28 INOX PRENSAR 45 MH"
+        },
+        {
+          "qty": "2.0",
+          "description": "CODO 28 INOX PRENSAR 45 H"
+        },
+        {
+          "qty": "5.0",
+          "description": "CODO 28 INOX PRENSAR 90 H"
+        },
+        {
+          "qty": "3.0",
+          "description": "CODO 28 INOX PRENSAR 90 MH"
+        },
+        {
+          "qty": "2.0",
+          "description": "MANGUITO 28 INOX PRENSAR H"
+        },
+        {
+          "qty": "1.0",
+          "description": "ENLACE TUERCA LOCA 28-1 INOX PRENSAR"
+        },
+        {
+          "qty": "2.0",
+          "description": "ROSCA DOBLE 1 INOX ROSCAR"
+        },
+        {
+          "qty": "1.0",
+          "description": "VALVULA BOLA 1 INOX316 ROSCAR H PN63"
+        },
+        {
+          "qty": "6.0",
+          "description": "ABRAZADERA ISOFONICA 28 3/4 REFORZADA M8/10"
+        },
+        {
+          "qty": "1.0",
+          "description": "TE 1/2 INOX ROSCAR"
+        },
+        {
+          "qty": "2.0",
+          "description": "TUERCA UNION 1/2 INOX ROSCAR MH"
+        },
+        {
+          "qty": "1.0",
+          "description": "VALVULA BOLA 1/2 LATON H PN30 PALANCA"
+        },
+        {
+          "qty": "2.0",
+          "description": "ROSCA DOBLE 1/2 INOX ROSCAR"
+        },
+        {
+          "qty": "2.0",
+          "description": "MANGUITO 1/2 INOX ROSCAR H"
+        },
+        {
+          "qty": "2.0",
+          "description": "VALVULA BOLA 1/2 LATON MH PN30 PALANCA"
+        },
+        {
+          "qty": "4.0",
+          "description": "MANGUITO MIXTO 22-1/2 INOX PRENSAR H"
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "recorded_pairs": 47,
+    "examples_shown": 3
+  }
+}

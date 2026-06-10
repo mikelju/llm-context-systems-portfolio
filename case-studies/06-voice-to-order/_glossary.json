@@ -1,0 +1,14 @@
+{
+  "_README": "Token vocabulary only (no real client terms). Real->token map stays OUT of repo (see ../../../portfolio-private/case06-terms.txt). See ../CASE_STUDY_SPEC.md §6.",
+  "tokens": [
+    { "token": "an industrial plumbing/HVAC supplier (client)", "for": "the client company name", "applies_to": "prose" },
+    { "token": "ClientA", "for": "short label for the same client (consistent with cases 01/03)", "applies_to": "where a token is needed" },
+    { "token": "ERP-X", "for": "the client's ERP product name and its API", "applies_to": "everywhere" },
+    { "token": "a supplier catalog", "for": "the wholesale supplier whose master catalog feeds the article database", "applies_to": "prose" },
+    { "token": "[customer]", "for": "end-customer names technicians dictate at the start of an order", "applies_to": "transcriptions" },
+    { "token": "[site]", "for": "construction-site names dictated in orders", "applies_to": "transcriptions" },
+    { "token": "[order-ref]", "for": "internal order/works numbers dictated in orders", "applies_to": "transcriptions" },
+    { "token": "ART-<8hex>", "for": "ERP article ids (regenerated deterministically, consistent across artifacts)", "applies_to": "all artifacts" }
+  ],
+  "_kept_public": "Generic public tech is kept: FastAPI, React, Supabase (pgvector/HNSW, Auth), Google Cloud Run, Netlify, GitHub Actions, OpenAI (whisper-1, text-embedding-3-small), Google Gemini (gemini-2.5-flash), O365. The author's own brand and domain (Biar Tech, pedidos.api.biartechnology.com) are kept. Product brand names inside article descriptions (e.g. fittings brands) are public catalog vocabulary and identify no client."
+}

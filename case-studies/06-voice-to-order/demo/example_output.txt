@@ -1,0 +1,63 @@
+Voice-to-Order — offline demo
+Real, sanitized artifacts. No API key, no network, no model call.
+───────────────────────── A. The product state (read from real artifacts) ──────────────────────────
+  catalog: 31,070 synced ERP rows · learned memory: 1,001 mappings · 283 archived transcriptions / 
+216 audio files
+  models: whisper-1 -> gemini-2.5-flash (extract) -> gemini-2.5-flash (re-rank) · embeddings 
+text-embedding-3-small
+  bounds: semaphores LLM=10 / DB=10 · retry x3 · thresholds 0.75/0.5 · top-25 · CTE x3
+────────────── B. Step 4 reproduced live — memory-first rule (deterministic, offline) ──────────────
+
+  dictated: "taco fischer de 10"
+    memory hit -> TACO 10 PLASTICO 4 SEGMENTOS  (ART-deafc956, used 1x) — pinned ABOVE catalog 
+candidates
+    dedup rule: the catalog candidate with this same description is skipped
+
+  dictated: "tuerca metrica 8"
+    memory hit -> TUERCA M8 ZINCADO DIN 934  (ART-56724a41, used 1x) — pinned ABOVE catalog 
+candidates
+    dedup rule: the catalog candidate with this same description is skipped
+
+  dictated: "valvula de bola de media"
+    no memory hit in this 14-row sample -> would fall through to the 31,070-row catalog search 
+(threshold 0.5, top 25)
+
+  fallback ordering (when the re-rank LLM fails) — real rule, run live:
+    1. candidate from memory  (memory=True, score=0.78)
+    2. candidate from catalog  (memory=False, score=0.81)
+    3. another catalog candidate  (memory=False, score=0.74)
+  Note the memory hit outranks a higher-scoring catalog row — that is the real sort key 
+(Historical_match desc, Score desc).
+  Divergence: the real system matches by pgvector embedding similarity; this token-overlap lookup is
+an offline approximation and may differ from the recorded behaviour.
+───────────── B. Step 7 reproduced live — degradation matrix (deterministic, offline) ──────────────
+┌──────────────────┬──────┬───────────┬────────┬───────────────────────────────────────────────────┐
+│ SIMULATE_FAILURE │ ERP  │ email+PDF │ memory │ order outcome                                     │
+├──────────────────┼──────┼───────────┼────────┼───────────────────────────────────────────────────┤
+│ (none)           │ ok   │ ok        │ ok     │ delivered on all 3 channels                       │
+│ erp              │ FAIL │ ok        │ ok     │ delivered by email; ERP flagged for office        │
+│                  │      │           │        │ follow-up                                         │
+│ erp,email        │ FAIL │ FAIL      │ ok     │ order saved to history only; both delivery lights │
+│                  │      │           │        │ red, office must resend                           │
+└──────────────────┴──────┴───────────┴────────┴───────────────────────────────────────────────────┘
+  3 real injection points (file:line in chaos-degradation.json); channels fail independently, each 
+with its own status light.
+───────────────────── C. Recorded evidence (replayed verbatim from artifacts) ──────────────────────
+  recorded extraction pair 1 of 47 (hand-validated):
+    dictated: "Pedido [customer] [order-ref], 24 tornillos allen métrica 10x25 inox, 24 tuercas 
+métrica 1…"
+      ->  24.0  TORNILLO ALLEN M10*25 INOX
+      ->  24.0  TUERCA M10 INOX DIN 934
+      ->  24.0  ARANDELA M10 INOX DIN125
+    high-volume pair: 21 lines from one dictation (incl. coreference)
+
+  fix-1 measurements (recorded): warm HNSW index scan 220ms · cold cache 347 disk reads vs 595 hits 
+· role timeout 8s -> function-scoped 30s · Cloud Run cold start ~20s
+  project scale: 321 commits
+  Per-request latency/token traces were not archived (declared gap — see EVALUATION.md); nothing 
+above is estimated.
+
+Not run here (need live APIs/infra): Step 2 whisper-1, Step 3 gemini extraction, the real Step 4 
+pgvector/HNSW similarity search, Step 5 re-ranking, and Step 7 ERP/email delivery. This demo does 
+not call any model and is not the full engine — it runs two deterministic system rules and replays 
+recorded evidence.

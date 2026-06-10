@@ -1,0 +1,84 @@
+{
+  "_provenance": {
+    "produced_by": "extracted from the real codebase: app/services/*.py, app/core/config.py, supabase_utils/schema/functions/*.sql, docs/plans/fixes/fix-1",
+    "run_month": "2026-04",
+    "note": "every constant below is the real value in code/config; nothing is estimated"
+  },
+  "stages": [
+    {
+      "step": 1,
+      "name": "Record / upload audio",
+      "where": "React (multi-step UI)",
+      "kind": "ui"
+    },
+    {
+      "step": 2,
+      "name": "Transcribe",
+      "where": "transcription_service.py - whisper-1",
+      "kind": "model"
+    },
+    {
+      "step": 3,
+      "name": "Extract structured order",
+      "where": "order_processing_service.py - gemini-2.5-flash via llm_wrapper, JSON, retry x3 backoff 2s*attempt",
+      "kind": "model"
+    },
+    {
+      "step": 4,
+      "name": "Per-article parallel search",
+      "where": "search_service.py - asyncio.gather; historical-first (count=1, thr 0.75) then catalog (top 25, thr 0.5); db semaphore 10",
+      "kind": "deterministic+db"
+    },
+    {
+      "step": 5,
+      "name": "Re-rank per article",
+      "where": "search_service.py - gemini-2.5-flash, llm semaphore 10; deterministic fallback: sort by (Historical_match desc, Score desc)",
+      "kind": "model+fallback"
+    },
+    {
+      "step": 6,
+      "name": "Human review / edit",
+      "where": "React - add/delete lines, decimal quantities, manual catalog add",
+      "kind": "hitl"
+    },
+    {
+      "step": 7,
+      "name": "Finalize & deliver",
+      "where": "order_delivery_service + erp_integration_service - PDF + O365 email + ERP-X + history upsert, per-channel status",
+      "kind": "deterministic+io"
+    }
+  ],
+  "models": {
+    "transcription": "whisper-1",
+    "extraction": "gemini-2.5-flash",
+    "reranking": "gemini-2.5-flash",
+    "embeddings": "text-embedding-3-small",
+    "router": "llm_wrapper.py routes by model-name prefix (gpt-/claude-/gemini-)"
+  },
+  "vector_search": {
+    "store": "Supabase pgvector, HNSW index",
+    "rpc_pattern": "CTE: ORDER BY embedding <=> query LIMIT match_count*3, then JOIN + is_active + threshold + LIMIT match_count",
+    "function_timeout": "SET statement_timeout = '30s' (role default was 8s)"
+  },
+  "metrics": {
+    "llm_concurrency": 10,
+    "db_concurrency": 10,
+    "max_llm_retries": 3,
+    "retry_base_delay_s": 2,
+    "historical_threshold": 0.75,
+    "catalog_threshold": 0.5,
+    "catalog_top_k": 25,
+    "cte_candidate_multiplier": 3,
+    "cte_candidates_fetched": 75,
+    "statement_timeout_role_s": 8,
+    "statement_timeout_fn_s": 30,
+    "warm_index_scan_ms": 220,
+    "cold_disk_reads": 347,
+    "cold_cache_hits": 595,
+    "cloud_run_cold_start_s": 20,
+    "workday_cutoff_hour": 14,
+    "git_commits": 321,
+    "sync_auth_timeout_s": 30,
+    "sync_catalog_timeout_s": 120
+  }
+}
