@@ -1,0 +1,42 @@
+{
+  "_provenance": {
+    "produced_by": "WF-DocBot-Tool + DocBot agent - outcomes recorded in the Phase-4 validation battery (2026-04)",
+    "run_month": "2026-04",
+    "metric_gap": "per-query token counts and wall-clock latency were NOT archived (n8n execution retention was reduced for privacy - see SEC-208). Numbers below are the real library size and the calls derived from the workflow structure; per-query selection counts were not archived."
+  },
+  "library_docs": 15,
+  "runs": [
+    {
+      "id": "R1-tool-path",
+      "query": "Which boilers does the Site B installation have? Give make, model and output for each.",
+      "in_domain": true,
+      "tool_invoked": true,
+      "selection_llm_calls": 1,
+      "answer_llm_calls": 1,
+      "fileapi_io_calls_per_selected_doc": 2,
+      "outcome": "answered with make/model/output and a document+page citation",
+      "verdict": "pass",
+      "maps_to": "validation battery P1"
+    },
+    {
+      "id": "R2-refuse-path",
+      "query": "How do you change the filter on a split air-conditioning unit?",
+      "in_domain": false,
+      "tool_invoked": true,
+      "selection_llm_calls": 1,
+      "answer_llm_calls": 1,
+      "docs_selected": 0,
+      "outcome": "refused: no relevant document in the library; no hallucination; suggested the office upload the manual",
+      "verdict": "pass",
+      "maps_to": "validation battery P10 (off-topic)"
+    }
+  ],
+  "metrics": {
+    "runs": 2,
+    "library_docs": 15,
+    "llm_judgment_calls_per_query": 2,
+    "fileapi_io_calls_per_selected_doc": 2,
+    "latency_typical_small_lib_seconds": 30,
+    "latency_typical_large_lib_seconds": 60
+  }
+}

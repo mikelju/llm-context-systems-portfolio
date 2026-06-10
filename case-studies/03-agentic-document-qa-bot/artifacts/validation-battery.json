@@ -1,0 +1,99 @@
+{
+  "_provenance": {
+    "produced_by": "Phase-4 validation plan (manual end-to-end testing over the real library via Telegram)",
+    "run_month": "2026-04",
+    "note": "questions translated/sanitized; site labels anonymized; verdicts are the real recorded OK/KO from the validation run"
+  },
+  "library_docs": 15,
+  "cases": [
+    {
+      "id": "P1",
+      "category": "basic recall",
+      "question": "Which boilers does the Site B installation have (make, model, output)?",
+      "expected": "exact data with page citation",
+      "verdict": "pass"
+    },
+    {
+      "id": "P2",
+      "category": "exact numeric",
+      "question": "What cold-fill pressure must the Site B installation be kept at?",
+      "expected": "must answer the documented pressure, with citation",
+      "verdict": "pass"
+    },
+    {
+      "id": "P3",
+      "category": "step-by-step procedure",
+      "question": "Steps to diagnose and clear an oil-burner lockout?",
+      "expected": "steps in the right order, none skipped",
+      "verdict": "pass"
+    },
+    {
+      "id": "P4",
+      "category": "symptom diagnosis",
+      "question": "The oil burner has a reddish flame - what does it mean and what to do?",
+      "expected": "must indicate poor combustion / lack of air, with protocol citation",
+      "verdict": "pass"
+    },
+    {
+      "id": "P5",
+      "category": "safety warnings",
+      "question": "Which extinguishers are in the Site B boiler room and when is each used?",
+      "expected": "must not omit any type; with page citation",
+      "verdict": "pass"
+    },
+    {
+      "id": "P6",
+      "category": "emergency procedure",
+      "question": "Steps if a major water leak occurs in the heating circuit?",
+      "expected": "ordered steps, none invented",
+      "verdict": "pass"
+    },
+    {
+      "id": "P7",
+      "category": "maintenance frequency",
+      "question": "How often must the expansion vessel be checked per the preventive plan?",
+      "expected": "must answer 'monthly' with a citation of the table",
+      "verdict": "fail"
+    },
+    {
+      "id": "P8",
+      "category": "multi-site, do not mix data",
+      "question": "How many heating boilers does the Site C installation have?",
+      "expected": "data for Site C, not Site B; mixing sites = fail",
+      "verdict": "pass"
+    },
+    {
+      "id": "P9",
+      "category": "cross-document",
+      "question": "Is there any installation in the library that uses propane? Which one(s)?",
+      "expected": "must cite at least Site B; inventing others = fail",
+      "verdict": "pass"
+    },
+    {
+      "id": "P10",
+      "category": "off-topic (negative case)",
+      "question": "How do you change the filter on a split air-conditioning unit?",
+      "expected": "must say it has no information, without inventing anything",
+      "verdict": "pass"
+    }
+  ],
+  "negative_cases_recorded": [
+    {
+      "id": "P10",
+      "query": "off-topic: split A/C filter",
+      "behaviour": "refused cleanly, no hallucination"
+    },
+    {
+      "id": "audit-paella",
+      "query": "off-topic: paella recipe (security audit run)",
+      "behaviour": "refused cleanly, no hallucination"
+    }
+  ],
+  "metrics": {
+    "total_cases": 10,
+    "passed": 9,
+    "failed": 1,
+    "negative_cases_recorded": 2,
+    "library_docs": 15
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "_provenance": {
+    "produced_by": "extracted from WF-DocBot-Tool (n8n export 3.0) - node graph + per-node boundary label",
+    "run_month": "2026-04",
+    "note": "node names translated/sanitized; type and ordering are from the real workflow (25 nodes total: 19 functional + 6 sticky notes)"
+  },
+  "workflow": "WF-DocBot-Tool",
+  "boundary_principle": "the model is invoked for judgment only (which documents, then the answer); every mechanical step is a deterministic n8n node",
+  "nodes": [
+    {
+      "name": "Execute Workflow Trigger",
+      "type": "trigger",
+      "boundary": "io"
+    },
+    {
+      "name": "Drive - Find catalog.json",
+      "type": "googleDrive",
+      "boundary": "io"
+    },
+    {
+      "name": "Drive - Download catalog.json",
+      "type": "googleDrive",
+      "boundary": "io"
+    },
+    {
+      "name": "Code - Parse catalog",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Code - Build selection prompt",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "HTTP - Gemini SELECT documents",
+      "type": "httpRequest",
+      "boundary": "llm"
+    },
+    {
+      "name": "Code - Evaluate selection",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "IF - Any documents?",
+      "type": "if",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Code - No results",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Loop - Selected PDFs",
+      "type": "splitInBatches",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Drive - Download PDF",
+      "type": "googleDrive",
+      "boundary": "io"
+    },
+    {
+      "name": "HTTP - Gemini UPLOAD PDF (File API)",
+      "type": "httpRequest",
+      "boundary": "io"
+    },
+    {
+      "name": "Code - Init poll",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Wait - Poll (File API state)",
+      "type": "wait",
+      "boundary": "io"
+    },
+    {
+      "name": "HTTP - Check File API state",
+      "type": "httpRequest",
+      "boundary": "io"
+    },
+    {
+      "name": "IF - ACTIVE?",
+      "type": "if",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "Code - Build Gemini body",
+      "type": "code",
+      "boundary": "deterministic"
+    },
+    {
+      "name": "HTTP - Gemini ANSWER (full context)",
+      "type": "httpRequest",
+      "boundary": "llm"
+    },
+    {
+      "name": "Code - Format response",
+      "type": "code",
+      "boundary": "deterministic"
+    }
+  ],
+  "metrics": {
+    "total_functional_nodes": 19,
+    "deterministic_nodes": 10,
+    "deterministic_code_nodes": 7,
+    "llm_judgment_calls": 2,
+    "fileapi_io_calls": 2,
+    "io_nodes": 7
+  }
+}

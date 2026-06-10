@@ -1,0 +1,13 @@
+{
+  "_README": "Token vocabulary only (no real client terms). Real->token map stays OUT of repo (see ../../../portfolio-private/case03-terms.txt). See ../CASE_STUDY_SPEC.md §6.",
+  "tokens": [
+    { "token": "a heating-systems field-service company (client)", "for": "the client company name", "applies_to": "prose" },
+    { "token": "FieldServCo", "for": "short label for the same client", "applies_to": "where a token is needed" },
+    { "token": "DocBot", "for": "the documentation-assistant bot product name", "applies_to": "everywhere" },
+    { "token": "FieldBot", "for": "the existing field-intervention bot product name", "applies_to": "everywhere" },
+    { "token": "ClientA", "for": "a prior client whose RAG bot used a classic vector store (the architecture comparison)", "applies_to": "the core-decision comparison" },
+    { "token": "Site A/B/C/...", "for": "the client's end-installation building names that appear in the manuals", "applies_to": "catalog, queries, traces" },
+    { "token": "a major boiler brand", "for": "boiler manufacturer/model names that appear in the agent prompt examples", "applies_to": "prose and prompt excerpts" }
+  ],
+  "_kept_public": "Generic public tech is kept: n8n Cloud, Telegram Bot API, Google Drive, Google Gemini (File API + Flash), OpenAI GPT-4.1-mini, Supabase. The author's own brand (Biar Tech) is kept. None identify the client."
+}

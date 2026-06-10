@@ -1,0 +1,51 @@
+Agentic Document Q&A Bot — offline demo
+Real, sanitized artifacts. No API key, no network, no model call.
+──────────────────────────── A. The library (catalog.json) + the agent ─────────────────────────────
+  15 documents in the catalog · 187 pages total · 2 over-limit PDFs rejected (20-page rule)
+  e.g. Use & maintenance manual - Site A — 14 pages · id b8fc5b8c2d25
+  agent: gpt-4.1-mini · memory: window buffer · tools: consultar_biblioteca, Think
+  router: deterministic — Telegram inline-keyboard menu + Switch nodes + per-user mode stored in n8n
+Static Data
+────────── B. Step 1 reproduced live — router/menu state machine (deterministic, offline) ──────────
+┌──────────────────────────────────────────┬────────────┬──────────────────────────────────────────┐
+│ event                                    │ mode after │ deterministic route                      │
+├──────────────────────────────────────────┼────────────┼──────────────────────────────────────────┤
+│ command:/start                           │ None       │ show menu (reset mode)                   │
+│ callback:mode_docbot                     │ docbot     │ set per-user mode = docbot; send         │
+│                                          │            │ confirmation                             │
+│ text:boilers at the Site B installation? │ docbot     │ route -> DocBot agent ->                 │
+│                                          │            │ consultar_biblioteca (Steps 2-6)         │
+│ callback:mode_fieldbot                   │ fieldbot   │ set per-user mode = fieldbot; send       │
+│                                          │            │ confirmation                             │
+│ text:last intervention at Site C?        │ fieldbot   │ route -> FieldBot agent (intervention    │
+│                                          │            │ history)                                 │
+│ command:/menu                            │ None       │ show menu (reset mode)                   │
+└──────────────────────────────────────────┴────────────┴──────────────────────────────────────────┘
+  The model does NOT decide the route — it is plain Code + Switch + Static Data.
+──────────── B. Step 1 reproduced live — the LLM boundary, counted from the real nodes ─────────────
+  WF-DocBot-Tool: 19 functional nodes -> 10 deterministic · 2 LLM · 7 io
+  the 2 model calls are the ONLY judgment steps:
+    - HTTP - Gemini SELECT documents
+    - HTTP - Gemini ANSWER (full context)
+  Recomputed live from the artifact and matches the recorded metric (llm_judgment_calls=2).
+───────────────────────── C. Recorded runs (read verbatim from the traces) ─────────────────────────
+  library: 15 documents
+
+  R1-tool-path — "Which boilers does the Site B installation have? Give make, model and output for 
+each."
+    in-domain=True · tool_invoked=True · outcome: answered with make/model/output and a 
+document+page citation
+
+  R2-refuse-path — "How do you change the filter on a split air-conditioning unit?"
+    in-domain=False · tool_invoked=True · outcome: refused: no relevant document in the library; no 
+hallucination; suggested the office upload the manual
+
+  per query: 2 model calls (select + answer) · 2 File-API io per selected doc
+  typical latency: under 30 seconds (1-3 docs), under 60 seconds (5+ docs)
+
+  Phase-4 battery: 9/10 pass (1 fail) over 15 docs · 2 negative cases recorded (off-topic -> clean 
+refusal)
+
+Not run here (need the live API): Step 3 Gemini SELECT, Step 4 File-API upload/poll, Step 5 Gemini 
+ANSWER. This demo does not call any model and is not the full engine — it runs the deterministic 
+rules and replays recorded metrics.

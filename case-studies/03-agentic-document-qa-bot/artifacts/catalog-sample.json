@@ -1,0 +1,232 @@
+{
+  "_provenance": {
+    "produced_by": "WF-Procesado - 'Code - Merge catalog' (n8n) - emits catalog.json to Google Drive",
+    "run_month": "2026-04",
+    "schema_note": "keys match the real n8n catalog entry (document_id/source_filename/title/document_type/language/page_count/tags_global)",
+    "sanitization_note": "site labels anonymized to Site A..N; document_ids regenerated (12-hex from the sanitized label); page_count, document_type and library composition are REAL; titles/tags generalized; recorded Gemini summaries were not archived, so summary_global is omitted"
+  },
+  "documents": [
+    {
+      "document_id": "b8fc5b8c2d25",
+      "source_filename": "site-a-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site A",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 14,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "a641ae2cdf08",
+      "source_filename": "site-b-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site B",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "1129d7c476aa",
+      "source_filename": "site-c-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site C",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "6992a2894f79",
+      "source_filename": "site-d-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site D",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "b010c7313452",
+      "source_filename": "site-e-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site E",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 14,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "195c69c086bd",
+      "source_filename": "site-f-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site F",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "e48ac7b0580f",
+      "source_filename": "site-g-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site G",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "4be26c675f36",
+      "source_filename": "site-h-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site H",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 14,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "4bcb1e7bdd58",
+      "source_filename": "site-i-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site I",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "4b027b1c8ad5",
+      "source_filename": "site-j-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site J",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "46b3239c51c9",
+      "source_filename": "site-k-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site K",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "1b8cd19b84f8",
+      "source_filename": "site-l-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site L",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "2de78e8db009",
+      "source_filename": "site-m-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site M",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 13,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "b7a7f30ef750",
+      "source_filename": "site-n-use-and-maintenance-manual.pdf",
+      "title": "Use & maintenance manual - Site N",
+      "document_type": "maintenance_manual",
+      "language": "es",
+      "page_count": 14,
+      "tags_global": [
+        "heating",
+        "boiler",
+        "maintenance",
+        "safety"
+      ]
+    },
+    {
+      "document_id": "277b821c5277",
+      "source_filename": "oil-burner-troubleshooting-protocol.pdf",
+      "title": "Oil-burner troubleshooting protocol",
+      "document_type": "protocol",
+      "language": "es",
+      "page_count": 1,
+      "tags_global": [
+        "oil burner",
+        "troubleshooting",
+        "combustion",
+        "safety"
+      ]
+    }
+  ],
+  "_rejected_examples": [
+    {
+      "source_filename": "controller-regulation-manual-1.pdf",
+      "page_count": 88,
+      "rejected_reason": "exceeds the 20-page limit - renamed ERROR_* in input/, never enters the catalog"
+    },
+    {
+      "source_filename": "controller-regulation-manual-2.pdf",
+      "page_count": 44,
+      "rejected_reason": "exceeds the 20-page limit"
+    }
+  ]
+}

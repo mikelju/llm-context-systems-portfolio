@@ -32,7 +32,7 @@ human-in-the-loop.
 |---|-----------|--------|
 | 1 | **[RAG Knowledge System — Hierarchical + Full-Context Retrieval](case-studies/01-rag-knowledge-system/)** | ✅ Documented · real artifacts · runnable demo |
 | 2 | **[Multimodal RAG over Technical Manuals — page-as-image embeddings + vision LLM](case-studies/02-multimodal-rag-technical-manuals/)** | ✅ Documented · real artifacts · runnable offline vector search |
-| 3 | Agentic Document Q&A Bot (n8n + Gemini File API + memory) | 🔜 |
+| 3 | **[Agentic Document Q&A Bot — n8n + Gemini File API + memory](case-studies/03-agentic-document-qa-bot/)** | ✅ Documented · real artifacts · runnable offline demo |
 | 4 | Document Intelligence — Manufacturer-Report Extraction (vision → structured JSON, HITL) | 🔜 |
 | 5 | MCP Server / Agent Tooling (Executor Agent) | 🔜 |
 | 6 | Applied-AI Product 0→1 — Voice-to-Order (vector/semantic search, cloud) | 🔜 |
