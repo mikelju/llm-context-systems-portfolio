@@ -29,13 +29,16 @@ fed by every confirmed order and searched memory-first (threshold 0.75) ahead of
 catalog. It's queryable with the same pgvector machinery, auditable row by row, and improves with use —
 a learning loop with zero extra infrastructure.
 
-## 4. Fine-tuning lost to a prompt with domain knowledge in it
+## 4. Fine-tuning lost to a prompt with domain knowledge in it — twice
 
 The repo still has the **47-pair fine-tuning dataset** built to train extraction. It was never
-deployed: the extraction prompt — abbreviations (DN, INOX, M, H/MH/HH), material rules, dictation
-patterns, coreference handling — reached the needed quality and stays editable in minutes when a new
-pattern appears. Those 47 pairs turned out to be worth more as **evaluation data** than as training
-data ([EVALUATION.md](EVALUATION.md)).
+deployed, for two compounding reasons. First, the extraction prompt — abbreviations (DN, INOX, M,
+H/MH/HH), material rules, dictation patterns, coreference handling — already beat the fine-tuned
+model, and it stays editable in minutes when a new pattern appears. Second, the timing was a lesson in
+itself: the dataset fine-tuned **GPT-3.5 just as GPT-4 shipped**, and plain GPT-4 outperformed the
+fine-tuned 3.5 out of the box — frontier-model velocity ate the fine-tune's edge before it reached
+production. Those 47 pairs turned out to be worth more as **evaluation data** than as training data
+([EVALUATION.md](EVALUATION.md)).
 
 ## 5. Provider-agnostic plumbing paid for itself in one incident
 
@@ -55,12 +58,17 @@ channel — is what made the chaos switch worth building.
 ## 7. The stack archaeology: every discard was a migration with a reason
 
 Still visible in the repo: the **Streamlit** app (root `main.py`, a Heroku `Procfile` that launches
-it) → rebuilt as FastAPI + React when the product needed auth, a phone-first multi-step flow and a
-deployable API; **Heroku** → **Cloud Run** when it needed Docker control and a **static IP** (VPC +
-NAT) to talk to the client's ERP; **FAISS pickled indexes** → **Supabase pgvector** when vectors had to
-live where auth, RLS and the synced catalog already lived; **IVFFlat** → **HNSW** (during fix-1). None
-of these was a rewrite for taste — each was triggered by a capability the previous stack couldn't
-offer.
+it) → rebuilt as FastAPI + React because Streamlit's UI was too slow and could not express the
+product's core screen — the review table with a **selection dropdown in every row** — on top of
+needing auth, a phone-first multi-step flow and a deployable API. **Heroku** → **Cloud Run** after
+memory problems and failed autoscaling tests: 0→1 scaling was slow, and a continuously-running worker
+sized for the load priced itself out, while Cloud Run's serverless container model fit (the **static
+IP** via VPC+NAT for the ERP came later, on Cloud Run). **BERT embeddings** → **OpenAI embeddings**
+because the OpenAI vectors simply matched better on this catalog; the early **Claude 3** extraction
+prompts → **GPT-4, then Gemini**, each measured better on the dictation task. **FAISS pickled
+indexes** → **Supabase pgvector** when vectors had to live where auth, RLS and the synced catalog
+already lived; **IVFFlat** → **HNSW** (during fix-1). None of these was a rewrite for taste — each was
+triggered by a capability the previous stack couldn't offer or a measured quality gap.
 
 ## 8. Declare the metric you failed to capture
 
