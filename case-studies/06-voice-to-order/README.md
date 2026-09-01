@@ -10,6 +10,10 @@ not one model call — it's making ~30 concurrent model/DB calls per order fast,
 surviving real-world failure modes (cold HNSW caches, statement timeouts, truncated LLM JSON, DNS
 quirks).
 
+> **Runnable replica:** this system is also published as a standalone public repository you can
+> clone and run locally — Docker plus two commands, on the same anonymized data, no cloud and no
+> API keys required: **[github.com/mikelju/voice-to-order](https://github.com/mikelju/voice-to-order)**.
+
 ## TL;DR (with real numbers)
 
 - **Scale of the matching problem:** each dictated line is matched against a **31,070-row** synced ERP

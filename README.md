@@ -18,6 +18,9 @@ designed and built for client and internal projects.
 - **Real artifacts, not just prose** — sanitized catalogs, recorded query traces with real token/latency numbers, and ingestion logs taken from the actual system.
 - **A runnable demo** — `python run_demo.py` replays recorded real-system traces and reproduces the Step-1 pre-filter offline (no API key, no network).
 - **Honest scope** — every case study states what is *built*, what is *measured*, and what is *not* (yet).
+- **One of them you can run yourself** — case study 06 also ships as a standalone public repo that
+  boots with Docker and two commands on real anonymized data:
+  [`voice-to-order`](https://github.com/mikelju/voice-to-order).
 
 ## Focus areas
 
@@ -28,19 +31,16 @@ human-in-the-loop.
 
 ## Case studies
 
-| # | Case study | Status |
-|---|-----------|--------|
-| 1 | **[RAG Knowledge System — Hierarchical + Full-Context Retrieval](case-studies/01-rag-knowledge-system/)** | ✅ Documented · real artifacts · runnable demo |
-| 2 | **[Multimodal RAG over Technical Manuals — page-as-image embeddings + vision LLM](case-studies/02-multimodal-rag-technical-manuals/)** | ✅ Documented · real artifacts · runnable offline vector search |
-| 3 | **[Agentic Document Q&A Bot — n8n + Gemini File API + memory](case-studies/03-agentic-document-qa-bot/)** | ✅ Documented · real artifacts · runnable offline demo |
-| 4 | Document Intelligence — Manufacturer-Report Extraction (vision → structured JSON, HITL) | 🔜 |
-| 5 | MCP Server / Agent Tooling (Executor Agent) | 🔜 |
-| 6 | **[Applied-AI Product 0→1 — Voice-to-Order (vector/semantic search, cloud)](case-studies/06-voice-to-order/)** | ✅ Documented · real artifacts · runnable offline demo |
-| 7 | Agentic Workflow — Company Prospecting (workflows + agent + deterministic tools) | 🔜 |
+| Case study | What it demonstrates | Evidence |
+|---|---|---|
+| **[RAG Knowledge System — hierarchical + full-context retrieval](case-studies/01-rag-knowledge-system/)** | Choosing the right context *before* the model sees it: a metadata-first catalog, hierarchical selection, and when full-context beats chunking | Real artifacts · runnable offline demo |
+| **[Multimodal RAG over Technical Manuals](case-studies/02-multimodal-rag-technical-manuals/)** | Retrieval when the meaning lives in schematics rather than prose: page-as-image embeddings + a vision LLM over 6,896 pages | Real artifacts · runnable offline vector search |
+| **[Agentic Document Q&A Bot](case-studies/03-agentic-document-qa-bot/)** | Where deterministic tooling ends and LLM judgment begins — the tool-vs-LLM boundary, and refusing instead of guessing | Real artifacts · runnable offline demo |
+| **[Applied-AI Product 0→1 — Voice-to-Order](case-studies/06-voice-to-order/)** | Productionizing: ~30 concurrent model/DB calls per order made fast, bounded and safe, over a 31,070-row catalog and a learned memory | Real artifacts · offline demo · **[full runnable replica](https://github.com/mikelju/voice-to-order)** |
 
-> Case study **01 is the reference standard**. The remaining six will follow the same
-> evidence-backed format (architecture → context strategy → retrieval flow → reliability/eval →
-> a real bug → sanitized artifacts → runnable demo).
+> Case study **01 is the reference standard**. Every case follows the same evidence-backed format
+> (architecture → core decision → reliability/eval → a real bug → sanitized artifacts → runnable
+> demo), enforced by an automated acceptance gate. More case studies are in progress.
 
 ## Authoring standard
 
