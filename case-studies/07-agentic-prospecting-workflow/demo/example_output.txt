@@ -1,0 +1,53 @@
+Agentic prospecting workflow -- offline demo
+Real corpus, deterministic layer recomputed live. No API key required.
+─────────────────────── A. The funnel -- what the workflow actually produced ───────────────────────
+  1. researched        38  ###################
+     a research folder was opened and at least one protocol ran
+  2. identified        37  ##################
+     protocol 01 resolved the legal identity, which every later protocol depends on
+  3. fully enriched    27  ##############
+     all 8 protocols completed
+  4. actioned          27  ##############
+     a PDF/Excel/Word prospecting report was generated
+
+  228 research JSON files, 8 protocols per lead.
+  10 identified leads never reached full enrichment -- left as partial
+  research rather than completed with unverified data.
+──────────────── B. The provenance contract (rates recomputed live from the counts) ────────────────
+  12309 values recorded across the corpus
+    1215 are an explicit 'not found' = 1215/12309 = 9.9% (written instead of a guess)
+  1178 sources logged, 1161 carry a URL = 98.6% traceable
+  reliability ratings: high=70, medium=141, low=12
+──────────── C. The negative case -- an unverifiable contact is dropped, never invented ────────────
+  54 contact slots across 27 leads (a manager and an admin lead per company)
+    39 have a reachable channel
+    15 left empty = 15/54 = 27.8%
+  Rule: only LinkedIn URLs seen directly in search results; never build one by deduction from a 
+name.
+  a fabricated contact is worse than an empty one: it is acted on, it bounces, and it burns the 
+lead.
+─────────────────── D. LIVE step -- the validator's rule, recomputed and checked ───────────────────
+  rule: >= 80% complete -> ready | >= 50% -> partial | below -> insufficient
+
+┌─────────────────────────┬──────────┬────────────┬──────────┬───────┬─────────┐
+│ lead                    │ complete │ recomputed │ recorded │ nulls │ sources │
+├─────────────────────────┼──────────┼────────────┼──────────┼───────┼─────────┤
+│ Lead A (best-sourced)   │ 100.0%   │ ready      │ ready    │ 25    │ 49      │
+│ Lead B (thinly-sourced) │ 68.4%    │ partial    │ partial  │ 12    │ 8       │
+└─────────────────────────┴──────────┴────────────┴──────────┴───────┴─────────┘
+
+  recomputed verdicts match the recorded ones: yes
+  corpus: mean 87.7% complete, median 92.1% -- 21 ready, 6 partial, 0 insufficient
+  the workflow does not fail when a company is hard to research - it produces a thinner, 
+honestly-marked report. The validator's completeness score is what tells a human which of the two 
+they are holding.
+──────────────────────── E. Where the contract leaked (measured, not fixed) ────────────────────────
+  the protocol specifies 3 allowed values for a source outcome: datos_encontrados, error_acceso, 
+sin_datos
+  the corpus contains 19 distinct values -- 22 occurrences off contract
+  the enum lives in a prose protocol file and no code validates it; validate_data.py checks that 
+required FIELDS are present, never that a value is one of the three allowed.
+
+The research itself -- an agent running 8 web-search protocols per company against the live web -- 
+is not run here and does not call any model. What ran above is the deterministic layer: the 
+validator's thresholds and the arithmetic over the recorded corpus. It is not the full workflow.

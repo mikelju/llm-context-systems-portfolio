@@ -1,0 +1,117 @@
+{
+  "_note": "The 8 search protocols and the fields the deterministic validator requires from each. Structure of the real system; no company data.",
+  "_provenance": {
+    "produced_by": "the workflow's protocol files and validate_data.py",
+    "run_month": "2026-03"
+  },
+  "protocols": [
+    {
+      "id": "01_identificacion",
+      "required_fields": [
+        "razon_social",
+        "cif",
+        "forma_juridica",
+        "domicilio",
+        "localidad",
+        "provincia",
+        "cnae",
+        "cnae_descripcion"
+      ],
+      "recommended_fields": [
+        "web",
+        "telefono_general",
+        "email_general",
+        "fecha_constitucion"
+      ],
+      "leads_completed": 37
+    },
+    {
+      "id": "02_financiero",
+      "required_fields": [
+        "datos_anuales"
+      ],
+      "recommended_fields": [
+        "analisis"
+      ],
+      "leads_completed": 29
+    },
+    {
+      "id": "03_empleados",
+      "required_fields": [
+        "empleados_por_anio"
+      ],
+      "recommended_fields": [
+        "rango_linkedin",
+        "ofertas_empleo",
+        "analisis"
+      ],
+      "leads_completed": 27
+    },
+    {
+      "id": "04_admin",
+      "required_fields": [
+        "existe_departamento",
+        "num_personas_admin"
+      ],
+      "recommended_fields": [
+        "perfiles_identificados",
+        "funciones_cubiertas",
+        "herramientas_detectadas",
+        "analisis"
+      ],
+      "leads_completed": 27
+    },
+    {
+      "id": "05_perfil",
+      "required_fields": [
+        "actividad_principal",
+        "productos_servicios",
+        "propuesta_valor"
+      ],
+      "recommended_fields": [
+        "sectores_mercados",
+        "clientes_conocidos",
+        "certificaciones"
+      ],
+      "leads_completed": 27
+    },
+    {
+      "id": "06_competencia",
+      "required_fields": [
+        "competidores_navarra",
+        "competidores_espana"
+      ],
+      "recommended_fields": [
+        "analisis"
+      ],
+      "leads_completed": 27
+    },
+    {
+      "id": "07_noticias",
+      "required_fields": [
+        "noticias"
+      ],
+      "recommended_fields": [
+        "analisis"
+      ],
+      "leads_completed": 27
+    },
+    {
+      "id": "08_contactos",
+      "required_fields": [
+        "contacto_gerente",
+        "contacto_admin_operaciones"
+      ],
+      "recommended_fields": [
+        "patron_email_empresa"
+      ],
+      "leads_completed": 27
+    }
+  ],
+  "validator_thresholds": {
+    "ready": ">= 80% complete",
+    "partial": ">= 50%",
+    "insufficient": "< 50%"
+  },
+  "execution_order": "01 first (it resolves the identity every other protocol interpolates), then 02/03/05/07 in parallel, then 04 (needs employee data), then 06 (needs sector), then 08 last (reuses names surfaced by news and profiles)"
+}

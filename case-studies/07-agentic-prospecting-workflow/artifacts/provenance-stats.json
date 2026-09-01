@@ -1,0 +1,39 @@
+{
+  "_note": "The anti-hallucination contract, measured over every research JSON in the corpus. A null is an explicit 'not found' written by the agent instead of a guess. Values themselves are not included - only how many there were and how they were sourced.",
+  "_provenance": {
+    "produced_by": "aggregate scan of the corpus research JSONs",
+    "run_months": "2026-03 to 2026-04"
+  },
+  "metrics": {
+    "research_json_files": 228,
+    "leaf_values": 12309,
+    "explicit_nulls": 1215,
+    "explicit_null_rate": 0.0987,
+    "sources_logged": 1178,
+    "sources_with_url": 1161,
+    "source_url_rate": 0.9856,
+    "datapoints_with_reliability_rating": 227,
+    "reliability_high": 70,
+    "reliability_medium": 141,
+    "reliability_low": 12,
+    "source_outcome_canonical": 1156,
+    "source_outcome_off_contract": 22,
+    "off_contract_distinct_values": 16
+  },
+  "source_outcomes_canonical": {
+    "datos_encontrados": 927,
+    "error_acceso": 84,
+    "sin_datos": 145
+  },
+  "contract_drift": {
+    "specified_values": [
+      "datos_encontrados",
+      "error_acceso",
+      "sin_datos"
+    ],
+    "observed_distinct_values": 19,
+    "off_contract_occurrences": 22,
+    "shape_of_the_drift": "free-text descriptions written in place of the enum (partial results, counts of profiles found, HTTP status notes)",
+    "why_it_happened": "the enum lives in a prose protocol file and no code validates it; validate_data.py checks that required FIELDS are present, never that a value is one of the three allowed"
+  }
+}

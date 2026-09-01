@@ -1,0 +1,50 @@
+{
+  "_note": "Real funnel of the prospecting workflow across the whole corpus. Company identities never appear: only stage counts. Stage 4 counts companies with at least one generated deliverable.",
+  "_provenance": {
+    "produced_by": "the workflow's own outputs (.tmp research folders + output/ deliverables)",
+    "run_months": "2026-03 to 2026-04"
+  },
+  "metrics": {
+    "leads_researched": 38,
+    "leads_identified": 37,
+    "leads_fully_enriched": 27,
+    "leads_with_deliverable": 27,
+    "protocols_per_lead": 8,
+    "research_json_files": 228,
+    "deliverable_files": {
+      "pdf": 27,
+      "docx": 27,
+      "xlsx": 23
+    }
+  },
+  "stages": [
+    {
+      "stage": 1,
+      "name": "researched",
+      "count": 38,
+      "meaning": "a research folder was opened and at least one protocol ran"
+    },
+    {
+      "stage": 2,
+      "name": "identified",
+      "count": 37,
+      "meaning": "protocol 01 resolved the legal identity, which every later protocol depends on"
+    },
+    {
+      "stage": 3,
+      "name": "fully enriched",
+      "count": 27,
+      "meaning": "all 8 protocols completed"
+    },
+    {
+      "stage": 4,
+      "name": "actioned",
+      "count": 27,
+      "meaning": "a PDF/Excel/Word prospecting report was generated"
+    }
+  ],
+  "drop_off": {
+    "identified_to_enriched": 10,
+    "note": "leads dropped between identification and full enrichment were left as partial research rather than completed with unverified data"
+  }
+}

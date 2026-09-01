@@ -1,0 +1,32 @@
+{
+  "_note": "The visual fallback for sources that block automated fetching. Counts come from the real project: the blocked/failed fetch outcomes logged across the corpus, the screenshots kept as evidence, and the two protocols wired to fall back. No URL, page or captured content is included.",
+  "_provenance": {
+    "produced_by": "the corpus source logs + the project's browser tool and phase plan",
+    "run_months": "2026-03 to 2026-04"
+  },
+  "metrics": {
+    "blocked_or_failed_fetches_logged": 84,
+    "total_sources_logged": 1178,
+    "blocked_fetch_rate": 0.0713,
+    "screenshots_captured": 11,
+    "protocols_with_visual_fallback": 2,
+    "protocols_total": 8
+  },
+  "the_problem": {
+    "symptom": "the professional-network source returns HTTP 999 to automated fetches",
+    "also_affected": "pages that render their content with JavaScript, and pages that only reveal data after scrolling or clicking",
+    "why_it_hurt_here": "those are the sources for protocol 04 (who works in administration) and protocol 08 (how to reach them) - the two protocols the whole prospecting exercise exists for"
+  },
+  "the_fix": {
+    "tool": "browser.py",
+    "approach": "drive a real browser (Playwright) and capture a screenshot, then read the image directly with the model's vision capability instead of parsing HTML",
+    "commands": ["screenshot", "navigate", "click", "scroll", "extract_text"],
+    "wired_into": ["protocol 04 (admin department)", "protocol 08 (contacts)"],
+    "headless_note": "headless Chromium is detectable by the blocking site; the tool can run headed when it is"
+  },
+  "the_limit": {
+    "what_it_does_not_change": "the anti-hallucination contract still applies - a profile seen in a screenshot is a verified sighting, a profile guessed from a name is not",
+    "residual": "84 blocked or failed fetches remain in the corpus; the fallback is manual and per-source, not automatic",
+    "not_measured": "there is no before/after experiment - the fix predates the bulk of the corpus, so no controlled comparison exists"
+  }
+}

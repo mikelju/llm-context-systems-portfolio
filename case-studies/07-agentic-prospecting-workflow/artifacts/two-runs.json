@@ -1,0 +1,46 @@
+{
+  "_note": "Two real leads from the same corpus, same 8 protocols, opposite outcomes. Identities are replaced by neutral labels; the counts are the real ones. This is the axis the core decision controls: how much of what was asked could actually be sourced.",
+  "_provenance": {
+    "produced_by": "the two extremes of the completeness distribution over fully-enriched leads",
+    "run_months": "2026-03 to 2026-04"
+  },
+  "metrics": {
+    "leads_compared": 2,
+    "best_completeness_pct": 100.0,
+    "worst_completeness_pct": 68.4,
+    "corpus_mean_completeness_pct": 87.7,
+    "corpus_median_completeness_pct": 92.1,
+    "leads_ready": 21,
+    "leads_partial": 6,
+    "leads_insufficient": 0
+  },
+  "runs": [
+    {
+      "lead": "Lead A (best-sourced)",
+      "note": "a company with public filings and press coverage: nearly every required field resolved",
+      "completeness_pct": 100.0,
+      "validator_verdict": "ready",
+      "leaf_values": 798,
+      "explicit_nulls": 25,
+      "sources_logged": 49,
+      "sources_with_url": 49,
+      "source_outcomes": {
+        "datos_encontrados": 49
+      }
+    },
+    {
+      "lead": "Lead B (thinly-sourced)",
+      "note": "a company with little public footprint: the workflow completed all 8 protocols but recorded what it could not find instead of filling it in",
+      "completeness_pct": 68.4,
+      "validator_verdict": "partial",
+      "leaf_values": 150,
+      "explicit_nulls": 12,
+      "sources_logged": 8,
+      "sources_with_url": 8,
+      "source_outcomes": {
+        "datos_encontrados": 8
+      }
+    }
+  ],
+  "what_this_shows": "the workflow does not fail when a company is hard to research - it produces a thinner, honestly-marked report. The validator's completeness score is what tells a human which of the two they are holding."
+}

@@ -38,6 +38,7 @@ human-in-the-loop.
 | **[Agentic Document Q&A Bot](case-studies/03-agentic-document-qa-bot/)** | Where deterministic tooling ends and LLM judgment begins — the tool-vs-LLM boundary, and refusing instead of guessing | Real artifacts · runnable offline demo |
 | **[Document Intelligence — scanned manufacturer reports](case-studies/04-document-intelligence-extraction/)** | Reading a 134-page scanned bilingual report into a 293-field inspection schema, scored as a confusion matrix — where *correctly left empty* is the majority-correct answer | Real artifacts · runnable offline demo |
 | **[Applied-AI Product 0→1 — Voice-to-Order](case-studies/06-voice-to-order/)** | Productionizing: ~30 concurrent model/DB calls per order made fast, bounded and safe, over a 31,070-row catalog and a learned memory | Real artifacts · offline demo · **[full runnable replica](https://github.com/mikelju/voice-to-order)** |
+| **[Agentic Prospecting Workflow](case-studies/07-agentic-prospecting-workflow/)** | An agent researching 38 companies under a contract that makes absence representable: every claim carries its source, and 15 of 54 contacts were left empty rather than invented | Real artifacts · runnable offline demo |
 
 > Case study **01 is the reference standard**. Every case follows the same evidence-backed format
 > (architecture → core decision → reliability/eval → a real bug → sanitized artifacts → runnable

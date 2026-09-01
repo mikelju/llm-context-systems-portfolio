@@ -1,0 +1,20 @@
+{
+  "_note": "The domain negative case: when no verifiable contact exists, the slot is left empty. The protocol forbids deducing a LinkedIn URL from a person's name, so an unverifiable contact is dropped rather than constructed. No contact data appears here - only the counts.",
+  "_provenance": {
+    "produced_by": "aggregate scan of protocol 08 across fully-enriched leads",
+    "run_months": "2026-03 to 2026-04"
+  },
+  "metrics": {
+    "leads_considered": 27,
+    "contact_slots": 54,
+    "slots_with_reachable_channel": 39,
+    "slots_left_empty": 15,
+    "empty_rate": 0.2778
+  },
+  "the_rule": {
+    "source": "the protocols' shared anti-hallucination rules",
+    "verbatim_intent": "only LinkedIn URLs seen directly in search results; never build one by deduction from a name",
+    "consequence": "a contact that cannot be verified is not written at all",
+    "why_it_matters": "a fabricated contact is worse than an empty one: it is acted on, it bounces, and it burns the lead"
+  }
+}
