@@ -1,0 +1,32 @@
+Document-intelligence extraction — offline demo
+Real pilot results, recomputed offline. No API key required.
+─────────────────────── A. The input — a scanned manufacturer quality report ───────────────────────
+  134 pages, 0 failed · rendered at 200 DPI · 46 Vision calls · ~9 min (batch 3 × 4 workers, 
+resumable)
+  131/134 pages are bilingual (Chinese/English), scanned — text extraction is hopeless here.
+  page types: test_report=33, ndt_report=33, certificate=24, drawing=20, dimension_record=12, 
+material_cert=5, cover=3, other=3, welding_record=1
+────────────── B. The target — the client's INR quality schema (flattened from Excel) ──────────────
+  11 inspection tabs · 293 fields (212 numeric, 81 boolean) to fill
+─────────────── C. The funnel + confusion matrix (recomputed live from real counts) ────────────────
+  293 schema fields  ->  108 present in the report  +  185 absent
+┌─────────────────────┬──────────────────────┬──────────────────┐
+│                     │ extracted a value    │ left empty       │
+├─────────────────────┼──────────────────────┼──────────────────┤
+│ field IS in report  │ 72 correct (TP)      │ 36 missed (FN)   │
+│ field NOT in report │ 32 hallucinated (FP) │ 153 correct (TN) │
+└─────────────────────┴──────────────────────┴──────────────────┘
+
+  precision (claims that were real) = 72/(72+32) = 69.2%
+  recall    (real fields captured)   = 72/(72+36) = 66.7%
+  specificity (absent fields left empty) = 153/(153+32) = 82.7%
+  Only 37% of the 293 fields are even present in this report — 'correctly empty' (153) is as 
+important as 'extracted' (72): the system must NOT invent the rest.
+────────────────────── D. Phase 4 — values written back to one Excel per part ──────────────────────
+  Piece A: 175/293 filled · 0 out of tolerance
+  Piece B: 175/293 filled · 0 out of tolerance
+  Piece C: 175/293 filled · 0 out of tolerance
+
+The 134-page Vision extraction used the live API and is not run here. The numbers above are the 
+recorded pilot results; the quality metrics are recomputed offline from the real confusion matrix. 
+Not the full pipeline.

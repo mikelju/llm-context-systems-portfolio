@@ -1,0 +1,19 @@
+{
+  "_note": "One page's raw Vision extraction, STRUCTURE only — real content (measurements, certs, names) redacted. Shows the per-page schema.",
+  "page_number": 50,
+  "document_type": "test_report",
+  "language": "bilingual",
+  "title": "[redacted]",
+  "content": {
+    "text": "[text]",
+    "tables": "[3 items]",
+    "measurements": "[5 items]",
+    "certificates": "[0 items]"
+  },
+  "metadata": {
+    "has_stamp": true,
+    "has_signature": true,
+    "date": "[text]",
+    "company": "[text]"
+  }
+}

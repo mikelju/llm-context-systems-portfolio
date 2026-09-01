@@ -1,0 +1,32 @@
+{
+  "_note": "Real Phase-1 run: flattening the client's Excel inspection record into the extraction schema, then resolving the cells openpyxl could not read with FOCUSED Vision calls (only the affected sheet images). Contrast this with extraction-stats.json, the blind page-by-page sweep of Phase 2: same model, opposite question. vision_calls_focused is recorded as approximate in the source plan.",
+  "_provenance": {
+    "produced_by": "flatten_excel.py + enrich_schema_vision.py (real system)",
+    "run_month": "2026-02",
+    "recorded_in": "phase-1 plan, success criteria + technical notes"
+  },
+  "metrics": {
+    "sheets_rendered": 12,
+    "sheet_images": 23,
+    "fields_extracted": 293,
+    "numeric_fields": 212,
+    "boolean_fields": 81,
+    "unreadable_tolerance_cells_before": 12,
+    "unreadable_tolerance_cells_after": 0,
+    "vision_calls_focused": 3,
+    "vision_calls_focused_is_approximate": true
+  },
+  "what_vision_was_asked": {
+    "question": "resolve the GD&T tolerance of these specific cells, from these specific sheet images",
+    "scope": "12 cells that openpyxl returned as #VALUE!",
+    "outcome": "12 of 12 resolved; 0 left unreadable"
+  },
+  "contrast_with_phase_2": {
+    "phase_1_question": "targeted: 'what is the tolerance of THIS field?' (schema known first)",
+    "phase_2_question": "open: 'what is on this page?' (schema not consulted)",
+    "phase_1_scope": "12 known cells across 23 sheet images",
+    "phase_2_scope": "134 unknown pages",
+    "phase_1_result": "12/12 resolved, 0 unresolved",
+    "phase_2_result": "134/134 pages read, 0 failed - but the values still had to be matched to fields afterwards, which is where the 32 false positives appeared"
+  }
+}

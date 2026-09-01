@@ -1,0 +1,32 @@
+{
+  "_note": "Real Phase-2 extraction run: every page of the scanned manufacturer report sent to Gemini Vision. Counts/timings are real.",
+  "_provenance": {
+    "produced_by": "extract_pdf_pages.py (real system)",
+    "run_month": "2026-03"
+  },
+  "metrics": {
+    "pages": 134,
+    "pages_failed": 0,
+    "wall_clock": "~9 min",
+    "api_calls": 46,
+    "render_dpi": 200,
+    "batch_size": 3,
+    "workers": 4,
+    "resumable": true
+  },
+  "pages_by_document_type": {
+    "test_report": 33,
+    "ndt_report": 33,
+    "certificate": 24,
+    "drawing": 20,
+    "dimension_record": 12,
+    "material_cert": 5,
+    "cover": 3,
+    "other": 3,
+    "welding_record": 1
+  },
+  "pages_by_language": {
+    "bilingual": 131,
+    "zh": 3
+  }
+}

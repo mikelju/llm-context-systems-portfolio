@@ -1,0 +1,144 @@
+{
+  "_note": "Real extraction coverage = a confusion matrix over the 293 schema fields. Per-field reasoning (which contained real measurements) removed; only counts kept.",
+  "_provenance": {
+    "produced_by": "analyze_coverage.py (real system)",
+    "run_month": "2026-03"
+  },
+  "metrics": {
+    "total_fields": 293,
+    "present_in_report": 108,
+    "absent_from_report": 185,
+    "dubious": 0,
+    "extracted_ok": 72,
+    "extraction_failures": 36,
+    "correctly_empty": 153,
+    "false_positives": 32,
+    "needs_review": 0,
+    "theoretical_max": 108,
+    "theoretical_max_rate": 0.369,
+    "extraction_efficiency": 0.667
+  },
+  "by_sheet": [
+    {
+      "sheet_id": "INR-0000-R00. INR1-1.1",
+      "title": "INR1-1.1 Component Flange Reception",
+      "total_fields": 28,
+      "present": 14,
+      "absent": 14,
+      "extracted_ok": 7,
+      "extraction_failures": 7,
+      "correctly_empty": 6,
+      "false_positives": 8
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-1.2",
+      "title": "INR1-1.2 Component Flange Reception",
+      "total_fields": 28,
+      "present": 19,
+      "absent": 9,
+      "extracted_ok": 13,
+      "extraction_failures": 6,
+      "correctly_empty": 7,
+      "false_positives": 2
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-2.1",
+      "title": "INR1-2.1 Component Plate Reception",
+      "total_fields": 11,
+      "present": 8,
+      "absent": 3,
+      "extracted_ok": 4,
+      "extraction_failures": 4,
+      "correctly_empty": 3,
+      "false_positives": 0
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-2.2",
+      "title": "INR1-2.2 Component Plate Reception",
+      "total_fields": 11,
+      "present": 11,
+      "absent": 0,
+      "extracted_ok": 7,
+      "extraction_failures": 4,
+      "correctly_empty": 0,
+      "false_positives": 0
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR2.1",
+      "title": "INR2.1 Component Plate Cutting & Belleving",
+      "total_fields": 16,
+      "present": 4,
+      "absent": 12,
+      "extracted_ok": 4,
+      "extraction_failures": 0,
+      "correctly_empty": 12,
+      "false_positives": 0
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR2.2",
+      "title": "INR2.2 Component Plate Cutting & Belleving",
+      "total_fields": 16,
+      "present": 4,
+      "absent": 12,
+      "extracted_ok": 4,
+      "extraction_failures": 0,
+      "correctly_empty": 12,
+      "false_positives": 0
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR3.1",
+      "title": "INR3.1 Component Tube Weld",
+      "total_fields": 66,
+      "present": 13,
+      "absent": 53,
+      "extracted_ok": 8,
+      "extraction_failures": 5,
+      "correctly_empty": 43,
+      "false_positives": 10
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR3.2",
+      "title": "INR3.2 Component Tube Weld",
+      "total_fields": 46,
+      "present": 17,
+      "absent": 29,
+      "extracted_ok": 10,
+      "extraction_failures": 7,
+      "correctly_empty": 27,
+      "false_positives": 2
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR4",
+      "title": "INR4 Component Welding",
+      "total_fields": 47,
+      "present": 16,
+      "absent": 31,
+      "extracted_ok": 15,
+      "extraction_failures": 1,
+      "correctly_empty": 22,
+      "false_positives": 9
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR5",
+      "title": "INR5 Component Finishing",
+      "total_fields": 19,
+      "present": 2,
+      "absent": 17,
+      "extracted_ok": 0,
+      "extraction_failures": 2,
+      "correctly_empty": 17,
+      "false_positives": 0
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR6",
+      "title": "INR6 Component Packaging & Storage",
+      "total_fields": 5,
+      "present": 0,
+      "absent": 5,
+      "extracted_ok": 0,
+      "extraction_failures": 0,
+      "correctly_empty": 4,
+      "false_positives": 1
+    }
+  ]
+}

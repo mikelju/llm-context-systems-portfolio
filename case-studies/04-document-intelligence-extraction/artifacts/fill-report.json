@@ -1,0 +1,37 @@
+{
+  "_note": "Real Phase-4 result: values written back to one Excel per part. Serial numbers replaced with Piece A/B/C.",
+  "_provenance": {
+    "produced_by": "write_to_excel.py (real system)",
+    "run_month": "2026-03"
+  },
+  "summary": {
+    "total_pieces": 3,
+    "total_filled": 525,
+    "total_fields": 879,
+    "filled_pct": 59.7,
+    "out_of_tolerance": 0
+  },
+  "pieces": [
+    {
+      "piece": "Piece A",
+      "total_filled": 175,
+      "total_empty": 118,
+      "total_fields": 293,
+      "out_of_tolerance": 0
+    },
+    {
+      "piece": "Piece B",
+      "total_filled": 175,
+      "total_empty": 118,
+      "total_fields": 293,
+      "out_of_tolerance": 0
+    },
+    {
+      "piece": "Piece C",
+      "total_filled": 175,
+      "total_empty": 118,
+      "total_fields": 293,
+      "out_of_tolerance": 0
+    }
+  ]
+}

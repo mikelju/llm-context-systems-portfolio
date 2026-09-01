@@ -1,0 +1,70 @@
+{
+  "_note": "Real INR (quality-inspection) schema flattened from the client's Excel, sanitized. Field COUNTS and tab structure are real; component dimensions/serials/people removed.",
+  "_provenance": {
+    "produced_by": "flatten_excel.py (real system)",
+    "run_month": "2026-02"
+  },
+  "summary": {
+    "total_sheets": 11,
+    "total_fields": 293,
+    "numeric_fields": 212,
+    "boolean_fields": 81
+  },
+  "sheets": [
+    {
+      "sheet_id": "INR-0000-R00. INR1-1.1",
+      "title": "INR1-1.1 Component Flange Reception",
+      "n_fields": 28
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-1.2",
+      "title": "INR1-1.2 Component Flange Reception",
+      "n_fields": 28
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-2.1",
+      "title": "INR1-2.1 Component Plate Reception",
+      "n_fields": 11
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR1-2.2",
+      "title": "INR1-2.2 Component Plate Reception",
+      "n_fields": 11
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR2.1",
+      "title": "INR2.1 Component Plate Cutting & Belleving",
+      "n_fields": 16
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR2.2",
+      "title": "INR2.2 Component Plate Cutting & Belleving",
+      "n_fields": 16
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR3.1",
+      "title": "INR3.1 Component Tube Weld",
+      "n_fields": 66
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR3.2",
+      "title": "INR3.2 Component Tube Weld",
+      "n_fields": 46
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR4",
+      "title": "INR4 Component Welding",
+      "n_fields": 47
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR5",
+      "title": "INR5 Component Finishing",
+      "n_fields": 19
+    },
+    {
+      "sheet_id": "INR-0000-R00. INR6",
+      "title": "INR6 Component Packaging & Storage",
+      "n_fields": 5
+    }
+  ]
+}
