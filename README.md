@@ -1,6 +1,6 @@
 # LLM Context Systems — Engineering Portfolio
 
-**Mikel Ugarte · AI Knowledge Systems Engineer** — RAG, context engineering, document intelligence, agentic workflows, MCP/tooling.
+**Mikel Ugarte · AI Knowledge Systems Engineer** — RAG, context engineering, document intelligence, agentic workflows, agent tooling.
 
 I build the layer between an LLM and real, messy company information: how documents get
 processed, how the *right* context is selected, how agents call deterministic tools, and how
@@ -26,7 +26,7 @@ designed and built for client and internal projects.
 
 RAG & context engineering · hierarchical + full-context (CAG-style) retrieval · metadata-first
 retrieval · document intelligence (PDF / Excel / Word / PPT / images, vision models) · agentic
-workflows · MCP & agent tooling · cost / latency / traceability as first-class concerns ·
+workflows · agent tooling · cost / latency / traceability as first-class concerns ·
 human-in-the-loop.
 
 ## Case studies
